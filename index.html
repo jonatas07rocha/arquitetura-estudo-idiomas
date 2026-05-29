@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitetura de Estudos de Idiomas | Jônatas Rocha</title>
+    
+    <!-- Tipografia Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#F5F4F0',   // Fundo papel encorpado
+                            100: '#EAE8E1',  // Superfícies secundárias
+                            200: '#DCDAD1',  // Bordas e divisores estruturais
+                            300: '#C5C2B7',
+                            400: '#9A978C',  // Rótulos e metadados
+                            550: '#646158',  // Corpo de texto
+                            850: '#262522',  // Títulos pesados e nítidos
+                            900: '#1C1B19',  // Preto fosco estrutural
+                        },
+                        ink: {
+                            blue: '#1A365D',
+                            yellow: '#FEF08A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    boxShadow: {
+                        'product': '0 20px 48px -12px rgba(28, 27, 25, 0.2), 0 4px 16px -4px rgba(28, 27, 25, 0.1)',
+                        'paper': '0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F5F4F0;
+            color: #1C1B19;
+            -webkit-font-smoothing: antialiased;
+        }
+        .ruled-lines {
+            background-size: 100% 28px;
+            background-image: linear-gradient(to bottom, transparent 27px, #DCDAD1 27px);
+        }
+        .blinking-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            color: #1C1B19;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="font-sans font-normal antialiased selection:bg-ink-yellow selection:text-stone-900">
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="fixed top-0 w-full bg-stone-50/95 backdrop-blur-md z-50 border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="w-3 h-3 bg-stone-900"></span>
+                <span class="text-xs uppercase tracking-widest font-bold">Arquitetura de Estudos</span>
+            </div>
+            <a href="#comprar" class="text-xs font-bold uppercase tracking-wider text-stone-900 border-b-2 border-stone-900 pb-0.5">Acessar a Estrutura</a>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION: EXPOSIÇÃO IMEDIATA DA CAPA E PREÇO DE ENTRADA -->
+    <header class="pt-28 pb-20 md:pt-40 md:pb-28 px-6 border-b border-stone-200 bg-stone-50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- Conteúdo Textual (Esquerda) -->
+            <div class="lg:col-span-6">
+                <span class="inline-block text-xs uppercase tracking-wider font-bold text-stone-400 mb-4">
+                    Um manual de organização cognitiva para estudos autodidatas de idiomas.
+                </span>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-stone-900 mb-6">
+                    Você entende o idioma.<br>
+                    <span class="text-stone-400">Mas trava quando precisa usar.</span>
+                </h1>
+                <p class="font-serif text-base md:text-lg text-stone-550 leading-relaxed mb-8">
+                    Compreender frases em aplicativos, vídeos ou leituras não significa que sua memória consiga recuperar essas estruturas durante a fala real. O problema não é inteligência, talento ou falta de dedicação. É organização do estudo.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 mb-8">
+                    <a href="#comprar" class="inline-flex items-center justify-center gap-3 bg-stone-900 text-stone-50 px-8 py-4 text-sm font-bold hover:bg-stone-800 transition-colors shadow-product">
+                        Explorar a Estrutura
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    
+                    <div class="flex flex-col">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Acesso a partir de</span>
+                        <span class="text-xl font-bold text-stone-900">R$ 59,00</span>
+                        <span class="text-xs text-stone-500 font-serif">pagamento único</span>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-stone-200">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-1">Fundamentos da Obra</span>
+                    <p class="text-xs font-serif text-stone-550 italic">
+                        Baseado em princípios de carga cognitiva, recuperação ativa e percepção estrutural da linguagem.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Capa do Livro em Destaque Absoluto (Direita) -->
+            <div class="lg:col-span-6 flex justify-center">
+                <div class="relative w-full max-w-md bg-stone-100 border border-stone-200 p-8 flex items-center justify-center shadow-inner">
+                    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#1C1B19_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    
+                    <!-- Capa (cover.png) com Efeito de Sombra e Borda Editorial -->
+                    <div class="relative z-20 w-4/5 shadow-product border border-stone-300 transform -rotate-1 hover:rotate-0 transition-transform duration-500 bg-white">
+                        <img src="cover.png" alt="Capa - Arquitetura de Estudos de Idiomas" class="w-full h-auto block" onerror="this.src='https://placehold.co/600x800/1C1B19/FEF08A?text=Capa+do+Livro'">
+                    </div>
+
+                    <!-- Selo de Formato -->
+                    <div class="absolute bottom-4 right-4 bg-white border border-stone-300 px-3 py-1.5 shadow-paper z-30 text-[9px] uppercase tracking-widest font-bold text-stone-700 flex items-center gap-2">
+                        <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                        E-book (PDF)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 2. ECOSSISTEMA DO PRODUTO: O QUE VOCÊ RECEBE IMEDIATAMENTE -->
+    <section class="py-20 px-6 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="border-b border-stone-200 pb-4 mb-12">
+                <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-1">Mapeamento de Artefatos</span>
+                <h2 class="text-2xl font-semibold text-stone-900">Componentes Inclusos no Sistema</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Coluna 1: Oferta Essencial -->
+                <div class="border border-stone-300 bg-stone-50 p-8 shadow-paper flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start border-b border-stone-200 pb-4 mb-6">
+                            <div>
+                                <h3 class="text-lg font-bold text-stone-900">Módulo Essencial</h3>
+                                <p class="text-xs text-stone-400 uppercase tracking-wider font-medium mt-1">Fundação de estudos</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xs font-serif text-stone-400 block">Pagamento Único</span>
+                                <span class="text-xl font-bold text-stone-900">R$ 59,00</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm text-stone-550 font-serif mb-8">
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>E-book completo:</strong> Guia de governança autodidata e estruturação da atenção.</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Fichas operacionais:</strong> Material focado em auditoria semanal.</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Infográficos visuais:</strong> Diagramas esquemáticos para fixação de conceitos.</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Log diário:</strong> Ferramenta para documentar autoexperimentação.</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Prompt mestre:</strong> Guia de comandos essenciais para estudos.</span></li>
+                        </ul>
+                    </div>
+                    <div class="border-t border-stone-200 pt-4">
+                        <p class="text-[10px] uppercase font-bold tracking-widest text-stone-400 mb-2">Entregável via Hotmart</p>
+                        <div class="text-xs text-stone-500 font-serif">Acesso imediato à fundação teórica e prática da obra.</div>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Oferta Premium -->
+                <div class="border border-stone-800 bg-stone-900 text-stone-100 p-8 shadow-product flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-ink-yellow text-stone-900 text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">
+                        Recomendado
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start border-b border-stone-700 pb-4 mb-6">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Suíte Premium</h3>
+                                <p class="text-xs text-stone-500 uppercase tracking-wider font-medium mt-1">Ambientes digitais e imersão</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xs font-serif text-stone-550 block text-stone-400">Pagamento Único</span>
+                                <span class="text-xl font-bold text-ink-yellow">R$ 89,00</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm text-stone-300 font-serif mb-8">
+                            <li class="flex items-start gap-3 border-b border-stone-800 pb-3"><i data-lucide="layers" class="w-4 h-4 text-white shrink-0 mt-1"></i> <span>Tudo do Módulo Essencial, mais:</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Resumos em áudio:</strong> Recapitulação auditiva capítulo a capítulo.</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Laboratório de prompts:</strong> Engenharia avançada com IA para idiomas.</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Apresentações visuais:</strong> Slides completos de cada capítulo do livro.</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Templates interativos:</strong> Sistemas prontos para uso no Notion e Obsidian.</span></li>
+                        </ul>
+                    </div>
+                    <div class="border-t border-stone-800 pt-4">
+                        <p class="text-[10px] uppercase font-bold tracking-widest text-ink-yellow mb-2">Kit de Aceleração Prática</p>
+                        <div class="text-xs text-stone-400 font-serif">Sistemas operacionais prontos para implementação visual e organizacional imediata.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. UTILIDADE DINÂMICA: IDENTIFICAÇÃO IMEDIATA & SATURAÇÃO -->
+    <section class="py-24 px-6 border-b border-stone-200">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-24">
+                <div class="lg:col-span-5">
+                    <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Simulação de Uso</span>
+                    <h2 class="text-3xl font-semibold text-stone-900 tracking-tight">Talvez isto pareça familiar.</h2>
+                </div>
+                <div class="lg:col-span-7">
+                    <p class="font-serif text-lg text-stone-550 leading-relaxed">
+                        A falha na produção verbal ocorre devido a uma assimetria estrutural na forma como a atenção é direcionada durante o estudo silencioso de mesa.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Demonstração dos Cenários -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-24">
+                <div class="p-8 border border-stone-200 bg-white shadow-paper flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-stone-400 uppercase tracking-wider block mb-4">Cenário 1 — Reconhecimento Passivo</span>
+                        <span class="text-xs font-serif text-stone-500 block mb-2">Você lê:</span>
+                        <div class="bg-stone-50 p-4 border border-stone-200 font-serif text-stone-800 text-base mb-4">
+                            “I look forward to receiving your reply.”
+                        </div>
+                    </div>
+                    <div class="text-sm font-semibold text-stone-900 pt-4 border-t border-stone-100 flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-stone-800"></i>
+                        Você entende imediatamente.
+                    </div>
+                </div>
+
+                <div class="p-8 border border-stone-300 bg-stone-50 shadow-paper flex flex-col justify-between ruled-lines">
+                    <div>
+                        <span class="text-[10px] font-bold text-stone-500 uppercase tracking-wider block mb-4">Cenário 2 — Tentativa de Fala</span>
+                        <span class="text-xs font-serif text-stone-500 block mb-2">Alguém pergunta:</span>
+                        <div class="bg-white p-4 border border-stone-200 font-serif text-stone-800 text-base mb-4">
+                            “How should I answer this e-mail?”
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-stone-200">
+                        <span class="text-xs uppercase tracking-widest font-bold text-ink-blue bg-ink-yellow px-1.5 py-0.5 block w-max mb-2">Silêncio.</span>
+                        <p class="text-xs font-serif text-stone-500 mb-4">Você sabe que já viu aquilo antes. Mas a estrutura não aparece.</p>
+                        <div class="h-9 border border-stone-300 bg-white flex items-center px-3 text-xs font-mono text-stone-400">
+                            <span class="blinking-cursor text-stone-800 font-sans font-medium">I... eh... </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto border-t border-stone-200 pt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-5">
+                    <h3 class="text-xl font-semibold text-stone-900">O resultado da saturação:</h3>
+                    <ul class="mt-4 space-y-2 text-xs font-bold uppercase text-stone-400 tracking-wider">
+                        <li>• fadiga precoce</li>
+                        <li>• releitura constante</li>
+                        <li>• dificuldade de retenção</li>
+                        <li>• travamento na fala</li>
+                        <li class="text-stone-800">• lentidão mental</li>
+                    </ul>
+                </div>
+                <div class="md:col-span-7 font-serif text-base text-stone-550 leading-relaxed space-y-4">
+                    <p class="font-sans text-sm font-bold text-stone-900 uppercase tracking-wide">A memória de trabalho possui limite.</p>
+                    <p>Quando vocabulário, gramática, tradução mental e autocorreção acontecem simultaneamente, o processamento entra em saturação.</p>
+                    <p class="font-sans font-bold text-stone-900 text-sm italic pt-2">
+                        Conclusão: Nem sempre o problema é esforço insuficiente. Às vezes o problema é excesso de carga ao mesmo tempo.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. FUNCIONAMENTO DA ESTRUTURA: COMO O MATERIAL ORGANIZA O ESTUDO -->
+    <section class="py-24 px-6 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="max-w-3xl mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Engenharia Organizacional</span>
+                <h2 class="text-2xl md:text-3xl font-semibold text-stone-900">A mecânica prática desenvolvida no livro.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Texto e Detalhes da Carga -->
+                <div class="lg:col-span-6 space-y-6 font-serif text-base text-stone-550 leading-relaxed">
+                    <p class="font-sans text-sm font-bold text-stone-900 uppercase tracking-wider">O que a obra executa:</p>
+                    <p>O livro apresenta uma arquitetura prática para reduzir atrito cognitivo e melhorar recuperação ativa da linguagem.</p>
+                    
+                    <div class="p-5 border-l-2 border-stone-900 bg-stone-50 font-sans text-xs font-semibold text-stone-800 space-y-2">
+                        <p class="uppercase tracking-wider text-[10px] text-stone-400">Pilares Operacionais Dedicados</p>
+                        <p>• percepção ativa da estrutura / segmentação em blocos menores</p>
+                        <p>• recuperação ativa / repetição espaçada manual</p>
+                        <p>• redução de carga extrínseca / organização sustentável</p>
+                    </div>
+
+                    <p class="text-sm font-sans font-bold text-stone-900 italic">
+                        O objetivo não é aumentar infinitamente o tempo de estudo. O objetivo é tornar o esforço mais utilizável.
+                    </p>
+                </div>
+
+                <!-- Diagrama de Circulação da Atenção -->
+                <div class="lg:col-span-6 bg-stone-50 border border-stone-300 p-8 shadow-paper">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-6">Fluxo Espacial do Estudo</span>
+                    
+                    <div class="flex flex-col gap-3 font-sans text-xs font-medium">
+                        <div class="p-3 bg-white border border-stone-200 flex justify-between items-center">
+                            <span>Contato com o idioma</span>
+                            <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-300"></i>
+                        </div>
+                        <div class="p-3 bg-white border border-stone-200 flex justify-between items-center">
+                            <span>Percepção da estrutura</span>
+                            <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-300"></i>
+                        </div>
+                        <div class="p-3 bg-white border border-stone-200 flex justify-between items-center bg-stone-100">
+                            <span>Organização em blocos utilizáveis</span>
+                            <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-400"></i>
+                        </div>
+                        <div class="p-3 bg-white border border-stone-300 flex justify-between items-center border-l-4 border-l-stone-900">
+                            <span class="font-bold">Recuperação ativa</span>
+                            <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-900"></i>
+                        </div>
+                        <div class="p-3 bg-white border border-stone-300 flex justify-between items-center border-l-4 border-l-stone-900">
+                            <span class="font-bold">Repetição espaçada</span>
+                            <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-900"></i>
+                        </div>
+                        <div class="p-3 bg-stone-900 text-white flex justify-between items-center shadow-product">
+                            <span class="font-bold uppercase tracking-wider text-[10px]">Uso espontâneo</span>
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-6 font-serif text-xs italic text-stone-400 leading-relaxed">
+                        A retenção melhora quando o cérebro precisa recuperar a estrutura sem apoio visual constante.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. APROFUNDAMENTO: REDUÇÃO DE CULPA E MATURIDADE -->
+    <section class="py-24 px-6 bg-stone-100 border-b border-stone-200">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-3">Ambiente de Aprendizagem Habitado</span>
+            <h2 class="text-2xl md:text-3xl font-semibold text-stone-900 tracking-tight mb-8">Nem sempre o problema era falta de capacidade.</h2>
+            
+            <p class="font-serif text-base md:text-lg text-stone-550 leading-relaxed max-w-2xl mx-auto mb-8">
+                Muitos estudantes passam anos alternando entre aplicativos, vídeos, métodos, cronogramas, cursos e técnicas diferentes. Ainda assim, continuam travando ao tentar falar o idioma espontaneamente.
+            </p>
+
+            <div class="max-w-xl mx-auto border-t border-stone-300 pt-8">
+                <p class="font-serif font-medium text-stone-900 text-lg md:text-xl leading-relaxed">
+                    Frequentemente, o problema não está na ausência de contato. Está na forma como a atenção foi organizada durante o estudo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SOBRE O AUTOR -->
+    <section class="py-24 px-6 bg-stone-900 text-stone-50 border-b border-stone-800">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            <div class="w-48 h-48 md:w-64 md:h-64 shrink-0 overflow-hidden rounded-full border-4 border-stone-700 shadow-xl relative bg-stone-800">
+                <img src="author.jpg" alt="Jônatas de Aquino Rocha" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" onerror="this.src='https://ui-avatars.com/api/?name=Jônatas+Rocha&background=262522&color=F5F4F0&size=400'">
+            </div>
+            <div>
+                <span class="text-[10px] uppercase tracking-widest font-bold text-ink-yellow mb-3 block flex items-center gap-2">
+                    <i data-lucide="pen-tool" class="w-4 h-4"></i> O Autor
+                </span>
+                <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">Jônatas de Aquino Rocha</h2>
+                <div class="space-y-4 text-sm md:text-base text-stone-300 font-serif leading-relaxed">
+                    <p>
+                        Estudante autodidata e analista focado no desenvolvimento de rotinas estratégicas e protocolos operacionais aplicados ao aprendizado de idiomas. Dedica-se a investigar como os limites de atenção seletiva, a memória de trabalho e a gestão de carga cognitiva determinam a retenção e a fluidez na fala ativa, buscando aplicar os achados da ciência cognitiva de forma prática no cotidiano.
+                    </p>
+                    <p>
+                        É o criador deste ecossistema modular de estudos, cujo objetivo é substituir abordagens comerciais genéricas por uma engenharia de precisão baseada em dados de desempenho individuais, devolvendo ao estudante a soberania autodidata.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. DECISÃO SERENA & SUMÁRIO COM PREÇOS REAIS -->
+    <section id="comprar" class="py-24 px-6 bg-stone-50">
+        <div class="max-w-5xl mx-auto">
+            
+            <div class="border border-stone-300 bg-white p-8 md:p-12 shadow-product">
+                
+                <div class="text-center mb-10 border-b border-stone-200 pb-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-left">
+                        <h2 class="text-2xl font-semibold text-stone-900">Acesso ao Sistema de Estudos</h2>
+                        <p class="text-xs font-serif text-stone-400 italic mt-1">Escolha o nível de sustentação para sua rotina</p>
+                    </div>
+                    
+                    <!-- Capa Reduzida de Referência -->
+                    <div class="w-20 shadow-paper border border-stone-300 hidden md:block">
+                        <img src="cover.png" alt="Arquitetura de Estudos" class="w-full h-auto" onerror="this.src='https://placehold.co/100x140/1C1B19/FEF08A'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-10">
+                    <!-- Opção 1: Essencial -->
+                    <div class="p-8 bg-stone-50 border border-stone-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">Fundamentos</span>
+                            <h3 class="text-xl font-bold text-stone-900 uppercase tracking-wide mb-1">Módulo Essencial</h3>
+                            <p class="text-xs text-stone-500 font-serif mb-6">O manual completo, fichas de auditoria, infográficos, logs e o prompt mestre.</p>
+                        </div>
+                        <div class="border-t border-stone-200 pt-6 mt-auto">
+                            <div class="mb-4">
+                                <span class="text-3xl font-bold text-stone-900">R$ 59,00</span>
+                                <span class="text-[10px] text-stone-500 block mt-1 uppercase tracking-widest font-bold">Pagamento único</span>
+                            </div>
+                            <a href="#" class="block text-center w-full bg-stone-200 text-stone-900 text-xs uppercase tracking-widest font-bold py-4 hover:bg-stone-300 transition-colors">Adquirir Essencial</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Opção 2: Premium -->
+                    <div class="p-8 bg-stone-900 border border-stone-800 shadow-xl text-white flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-ink-yellow text-stone-900 text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">
+                            Pacote Completo
+                        </div>
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">Imersão Total</span>
+                            <h3 class="text-xl font-bold text-white uppercase tracking-wide mb-1">Suíte Premium</h3>
+                            <p class="text-xs text-stone-300 font-serif mb-6">Tudo do essencial, além de áudios práticos, laboratório de prompts, slides em apresentação e templates para Notion e Obsidian.</p>
+                        </div>
+                        <div class="border-t border-stone-700 pt-6 mt-auto">
+                            <div class="mb-4">
+                                <span class="text-3xl font-bold text-ink-yellow">R$ 89,00</span>
+                                <span class="text-[10px] text-stone-400 block mt-1 uppercase tracking-widest font-bold">Pagamento único</span>
+                            </div>
+                            <a href="#" class="block text-center w-full bg-white text-stone-900 text-xs uppercase tracking-widest font-bold py-4 hover:bg-stone-200 transition-colors">Adquirir Premium</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-stone-200 pt-8 max-w-xl mx-auto text-center font-serif text-xs text-stone-400 leading-relaxed">
+                    <p>O objetivo deste material não é transformar estudo em entretenimento constante. É ajudar você a construir uma rotina cognitivamente sustentável, organizada e utilizável no longo prazo.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 flex justify-between items-center text-[9px] uppercase tracking-widest font-bold text-stone-400 px-4">
+                <span>© 2026</span>
+                <span>Arquitetura de Estudos de Idiomas</span>
+                <span>Soberania Autodidata</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Inicialização dos Ícones -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
