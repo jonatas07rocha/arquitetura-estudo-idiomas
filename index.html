@@ -120,20 +120,30 @@
                 </div>
             </div>
 
-            <!-- Capa do Livro em Destaque Absoluto (Direita) -->
+            <!-- Capa do Livro em Destaque Absoluto (Direita) - AGORA UMA PILHA -->
             <div class="lg:col-span-6 flex justify-center">
-                <div class="relative w-full max-w-md bg-stone-100 border border-stone-200 p-8 flex items-center justify-center shadow-inner">
-                    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#1C1B19_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <!-- Container principal da pilha, agora com posicionamento relativo para os papéis de baixo -->
+                <div class="relative w-full max-w-md p-8 flex items-center justify-center">
                     
-                    <!-- Capa (cover.png) com Efeito de Sombra e Borda Editorial -->
-                    <div class="relative z-20 w-4/5 shadow-product border border-stone-300 transform -rotate-1 hover:rotate-0 transition-transform duration-500 bg-white">
-                        <img src="cover.png" alt="Capa - Arquitetura de Estudos de Idiomas" class="w-full h-auto block" onerror="this.src='https://placehold.co/600x800/1C1B19/FEF08A?text=Capa+do+Livro'">
-                    </div>
+                    <!-- O container da pilha em si -->
+                    <div class="relative w-4/5 aspect-[3/4]"> <!-- Usando aspect-ratio para manter a forma do e-book -->
+                        
+                        <!-- PAPÉIS DE BAIXO (Efeito de pilha) -->
+                        <!-- Papel 3 (mais ao fundo) -->
+                        <div class="absolute inset-0 bg-stone-100 border border-stone-200 shadow-sm transform translate-x-2 translate-y-2 rotate-2 z-10"></div>
+                        <!-- Papel 2 -->
+                        <div class="absolute inset-0 bg-stone-50 border border-stone-200 shadow-sm transform translate-x-1 translate-y-1 rotate-1 z-10"></div>
 
-                    <!-- Selo de Formato -->
-                    <div class="absolute bottom-4 right-4 bg-white border border-stone-300 px-3 py-1.5 shadow-paper z-30 text-[9px] uppercase tracking-widest font-bold text-stone-700 flex items-center gap-2">
-                        <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-                        E-book (PDF)
+                        <!-- Capa (cover.png) - O ITEM DO TOPO -->
+                        <div class="absolute inset-0 z-20 shadow-product border border-stone-300 transform -rotate-1 hover:rotate-0 transition-transform duration-500 bg-white">
+                            <img src="cover.png" alt="Capa - Arquitetura de Estudos de Idiomas" class="w-full h-auto block" onerror="this.src='https://placehold.co/600x800/1C1B19/FEF08A?text=Capa+do+Livro'">
+                        </div>
+
+                         <!-- Selo de Formato - Mantido, mas ajustado para o container da pilha -->
+                        <div class="absolute bottom-4 right-4 bg-white border border-stone-300 px-3 py-1.5 shadow-paper z-30 text-[9px] uppercase tracking-widest font-bold text-stone-700 flex items-center gap-2">
+                            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                            E-book (PDF) + KIT
+                        </div>
                     </div>
                 </div>
             </div>
