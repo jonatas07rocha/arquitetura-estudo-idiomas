@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquitetura de Estudos de Idiomas | Jônatas Rocha</title>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1B19' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
     
-    <!-- Tipografia Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -80,7 +76,6 @@
 </head>
 <body class="font-sans font-normal antialiased selection:bg-ink-yellow selection:text-stone-900">
 
-    <!-- NAVEGAÇÃO -->
     <nav class="fixed top-0 w-full bg-stone-50/95 backdrop-blur-md z-50 border-b border-stone-200">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -91,7 +86,6 @@
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION -->
     <header class="pt-28 pb-20 md:pt-40 md:pb-28 px-6 border-b border-stone-200 bg-stone-50">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -122,7 +116,6 @@
                 </div>
             </div>
 
-            <!-- Capa do Livro -->
             <div class="lg:col-span-6 flex justify-center">
                 <div class="relative w-full max-w-md p-8 flex items-center justify-center">
                     <div class="relative w-4/5 aspect-[3/4]">
@@ -138,7 +131,6 @@
         </div>
     </header>
 
-    <!-- 2. O PROBLEMA -->
     <section class="py-24 px-6 bg-white border-b border-stone-200">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-24">
@@ -188,7 +180,6 @@
         </div>
     </section>
 
-    <!-- 3. O MECANISMO -->
     <section class="py-24 px-6 bg-stone-50 border-b border-stone-200">
         <div class="max-w-7xl mx-auto">
             <div class="max-w-3xl mb-16">
@@ -238,7 +229,6 @@
         </div>
     </section>
 
-    <!-- 4. INTRODUÇÃO DA AMOSTRA -->
     <section class="py-24 px-6 bg-stone-100 border-b border-stone-200 text-center">
         <div class="max-w-3xl mx-auto">
             <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-3">Experiência Imersiva</span>
@@ -253,54 +243,168 @@
         </div>
     </section>
 
-    <!-- 5. SEÇÃO DE LEITURA PAGINADA (Oculta inicialmente) -->
     <section id="amostra-container" class="hidden bg-white py-24 px-6 border-b border-stone-200">
         <div class="max-w-2xl mx-auto">
             
-            <!-- Header E-reader -->
             <div class="flex items-center justify-between border-b border-stone-200 pb-4 mb-10">
                 <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 flex items-center gap-2">
                     <i data-lucide="book" class="w-3 h-3"></i> Modo de Leitura
                 </span>
-                <span id="page-counter-top" class="text-xs font-serif text-stone-500 italic">Página 1 de 2</span>
+                <span id="page-counter-top" class="text-xs font-serif text-stone-500 italic">Página 1 de 5</span>
             </div>
 
-            <!-- Corpo das Páginas -->
             <div id="book-content" class="min-h-[400px]">
                 
-                <!-- PÁGINA 1 -->
                 <article id="page-1" class="page-slide block space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
                     <h2 class="text-3xl md:text-4xl font-sans font-bold text-stone-900 mb-10 tracking-tight leading-tight">Capítulo 1: Por que aprender idiomas com arquitetura cognitiva?</h2>
-                    <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6">1. Fenômeno Humano Inicial</h3>
+                    
+                    <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-8">1. Fenômeno Humano Inicial</h3>
                     <p>Imagine a seguinte cena: você decide aprender um novo idioma. Entusiasmado, baixa o aplicativo de idiomas mais popular do mercado, com suas notificações amigáveis e interface colorida. Você passa trinta minutos por dia completando frases, arrastando palavras para os seus devidos lugares e ganhando pontos de experiência em um ranking virtual. Após algumas semanas de consistência inabalável, o aplicativo exibe orgulhosamente uma insígnia: "Você completou 45% do curso!".</p>
                     <p>Sentindo-se confiante, você decide testar seus novos conhecimentos. Abre um vídeo de um falante nativo na internet ou coloca um episódio de uma série de TV sem legendas em português. Em vez de compreender o diálogo, tudo o que você ouve é uma massa confusa de sons rápidos. Ou pior: você tenta escrever um e-mail de trabalho simples ou responder a uma pergunta espontânea feita por um estrangeiro na rua. Você hesita, gagueja e percebe que as palavras que pareciam tão fáceis na tela do aplicativo simplesmente não aparecem.</p>
-                </article>
-
-                <!-- PÁGINA 2 -->
-                <article id="page-2" class="hidden space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
                     <p>Uma frustração silenciosa se instala. Você passa a acreditar que o problema é sua memória, sua idade ou a falta de um "talento natural" para línguas. A reação imediata costuma ser duplicar a aposta: comprar um curso mais caro, assinar outro aplicativo ou tentar consumir horas seguidas de filmes em áudio original. No entanto, o padrão de paralisia se repete.</p>
                     <p>O que ocorre nesse momento não é uma falha de inteligência, falta de empenho ou um defeito inerente à plataforma escolhida. É o resultado previsível de uma postura atencional que treinou a sua mente para uma tarefa cognitiva inteiramente diferente daquela exigida para produzir o idioma de forma ativa. O erro não está no software ou no hardware do seu método, mas na ausência de um sistema operacional de governança que saiba extrair o esforço útil da ferramenta.</p>
+
+                    <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-12">2. Fenômeno Observável</h3>
+                    <p>Para compreender o mecanismo exato dessa falha, podemos realizar um teste prático. Observe as duas tarefas abaixo e tente executá-las mentalmente:</p>
                     
-                    <!-- Final da Amostra (Só exibe na última página) -->
-                    <div class="mt-16 p-10 bg-stone-50 border border-stone-200 text-center shadow-paper font-sans">
-                        <h3 class="text-2xl font-semibold text-stone-900 mb-3">Continuar a Leitura</h3>
-                        <p class="text-stone-550 font-serif mb-8 text-lg">Você chegou ao final da amostra gratuita.</p>
-                        <button onclick="revelarOferta()" class="inline-flex items-center justify-center gap-3 bg-stone-900 text-stone-50 px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-stone-800 transition-colors shadow-product">
-                            Conhecer a Obra Completa
-                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
-                        </button>
+                    <div class="bg-stone-50 p-6 border-l-2 border-stone-300 font-serif text-stone-800 my-6">
+                        <strong class="font-sans text-sm tracking-wider uppercase block mb-3 text-stone-900">Tarefa A: Reconhecimento Visual</strong>
+                        <p class="text-base mb-3">Olhe para as palavras abaixo e identifique o significado de cada uma no idioma que você estuda (usaremos o inglês e o francês como exemplos):</p>
+                        <ul class="list-disc list-inside text-base space-y-1 ml-2">
+                            <li>House (Inglês) ou Maison (Francês)</li>
+                            <li>Book (Inglês) ou Livre (Francês)</li>
+                            <li>To write (Inglês) ou Écrire (Francês)</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Se você já teve qualquer contato mínimo com esses idiomas, identificou instantaneamente "casa", "livro" e "escrever". O processo foi rápido, fluido e exigiu pouco esforço mental.</p>
+
+                    <div class="bg-stone-50 p-6 border-l-2 border-stone-300 font-serif text-stone-800 my-6">
+                        <strong class="font-sans text-sm tracking-wider uppercase block mb-3 text-stone-900">Tarefa B: Produção Ativa</strong>
+                        <p class="text-base mb-3">Agora, sem olhar para a lista anterior, tente traduzir de cabeça e falar em voz alta a seguinte frase exata no idioma que você estuda:</p>
+                        <p class="text-base italic">"O autor escreveu o terceiro capítulo do livro em sua casa de campo."</p>
+                    </div>
+                    
+                    <p>Ao realizar este exercício, é comum sentir uma hesitação sobre qual tempo verbal usar, ou uma dúvida sutil sobre preposições e a ordem correta das palavras. Este contraste revela uma falha estrutural na forma como a maioria dos estudantes avalia o próprio progresso. A ilusão de que compreender um texto ou reconhecer uma palavra em um teste de múltipla escolha significa "saber" o idioma é um viés cognitivo comum.</p>
+                </article>
+
+                <article id="page-2" class="hidden space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
+                    <p>Você consegue reconhecer o padrão visual quando ele é apresentado (Tarefa A), mas encontra sérias dificuldades ao tentar reconstruir esse mesmo padrão a partir do zero (Tarefa B).</p>
+
+                    <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-12">3. Explicação Mínima Necessária</h3>
+                    <p>A raiz dessa paralisia operacional reside na diferença entre dois processos fundamentais da memória: reconhecimento e recuperação (ou recordação ativa).</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8 font-sans text-sm">
+                        <div class="border border-stone-200 p-5 bg-white">
+                            <strong class="text-stone-900 block mb-2 font-bold tracking-wide">Reconhecimento Visual</strong>
+                            <span class="text-[10px] uppercase font-bold text-stone-400 block mb-3">Estímulo Externo Presente</span>
+                            <p class="text-stone-600 leading-relaxed">A mente apenas valida e identifica a informação física disponível no ambiente (baixo esforço).</p>
+                        </div>
+                        <div class="border border-stone-200 p-5 bg-white">
+                            <strong class="text-stone-900 block mb-2 font-bold tracking-wide">Recuperação Ativa</strong>
+                            <span class="text-[10px] uppercase font-bold text-stone-400 block mb-3">Busca Interna Autônoma</span>
+                            <p class="text-stone-600 leading-relaxed">A mente reconstrói a estrutura a partir do zero na memória de longo prazo, sem amparo visual (alto esforço).</p>
+                        </div>
+                    </div>
+
+                    <h4 class="font-sans font-bold text-stone-900 text-xl mt-8 mb-4">Familiaridade vs. Retenção</h4>
+                    <p>A memória humana opera sob o princípio da economia de esforço. Quando você estuda preenchendo lacunas ou assistindo a vídeos com legendas, o idioma alvo está fisicamente presente na sua tela. A mente não precisa realizar o trabalho de buscar e reconstruir a informação na memória de longo prazo; ela apenas processa pistas visuais já disponíveis.</p>
+                    <p>Este fenômeno é conhecido como familiaridade. Ele gera uma falsa sensação de fluidez. Como o processamento visual da informação na tela flui sem atrito, o sistema cognitivo presume que a informação foi consolidada.</p>
+
+                    <h4 class="font-sans font-bold text-stone-900 text-xl mt-8 mb-4">A Ilusão de Competência</h4>
+                    <p>A ilusão de competência ocorre quando confundimos a capacidade de compreender um conteúdo estruturado (com o amparo de pistas contextuais) com a capacidade de produzir esse mesmo conteúdo de forma autônoma. Ao limitar seu estudo a responder estímulos visuais e receber recompensas interativas imediatas, você está apenas acompanhando o raciocínio de terceiros.</p>
+                    <p>As associações necessárias para acessar o vocabulário de forma ativa não estão sendo fortalecidas. É por isso que você é capaz de entender grande parte de um filme, mas trava ao tentar pedir uma refeição simples em um restaurante sem o amparo de um roteiro.</p>
+                    <p>Compreender este viés não significa que você deve demonizar ou descartar os aplicativos populares de mercado. Significa entender que eles operam predominantemente na camada do reconhecimento visual. Em sentido lato, todo método funciona se você souber hackear sua própria postura operacional para extrair fricção ativa dele.</p>
+                </article>
+
+                <article id="page-3" class="hidden space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
+                    <p>Se você deixar a mente rodar no piloto automático da gamificação, o conhecimento permanecerá volátil e se dissipará assim que os estímulos e as pistas da tela forem removidos.</p>
+
+                    <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-12">4. Operacionalização</h3>
+                    <p>Para escapar do ciclo de consumo passivo e desarmar a ilusão de competência, você deve introduzir esforço ativo na sua rotina de estudos através de dois passos simples, aplicando-os mesmo que esteja utilizando plataformas prontas do mercado.</p>
+
+                    <h4 class="font-sans font-bold text-stone-900 text-xl mt-8 mb-4">Passo 1: Avaliação do Esforço Atencional</h4>
+                    <p>Identifique as atividades de estudo que você realizou na última semana e classifique-as de acordo com o nível de exigência cognitiva:</p>
+
+                    <ul class="space-y-4 my-6 list-none font-sans text-base">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="eye" class="w-5 h-5 text-stone-400 shrink-0 mt-1"></i>
+                            <div>
+                                <strong class="text-stone-900">Atividades de Baixo Esforço (Foco em Familiaridade):</strong>
+                                <p class="text-stone-600 mt-1 text-sm leading-relaxed">Assistir a vídeos com legenda no idioma original sem pausar; fazer exercícios de múltipla escolha ou arrastar blocos de palavras; ler passivamente textos com traduções logo abaixo.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="brain" class="w-5 h-5 text-stone-900 shrink-0 mt-1"></i>
+                            <div>
+                                <strong class="text-stone-900">Atividades de Alto Esforço (Foco em Retenção):</strong>
+                                <p class="text-stone-600 mt-1 text-sm leading-relaxed">Escrever ou falar um resumo sobre o vídeo que acabou de assistir sem consultar o material; tentar traduzir uma frase de aplicativo antes de olhar as alternativas na tela; anotar lacunas de fala e corrigi-las depois.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h4 class="font-sans font-bold text-stone-900 text-xl mt-12 mb-4">Passo 2: O Teste de Reconstrução Reversa</h4>
+                    <p>Sempre que consumir qualquer material no idioma que estuda — incluindo as frases apresentadas nas lições diárias de um aplicativo —, aplique a técnica de reconstrução para forçar a recuperação ativa:</p>
+                    
+                    <div class="border-l-4 border-stone-900 bg-stone-50 p-6 my-6 font-sans text-sm space-y-4">
+                        <div class="flex items-center gap-3"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-stone-200 text-stone-700 font-bold text-xs">1</span> <span class="font-medium text-stone-900">Selecione a Frase recém decodificada.</span></div>
+                        <div class="flex items-center gap-3"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-stone-200 text-stone-700 font-bold text-xs">2</span> <span class="font-medium text-stone-900">Escreva apenas a tradução exata em português.</span></div>
+                        <div class="flex items-center gap-3"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-stone-900 text-stone-50 font-bold text-xs">3</span> <span class="font-medium text-stone-900">Aguarde exatos 60 segundos (Limpeza da Memória).</span></div>
+                        <div class="flex items-center gap-3"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-stone-900 text-stone-50 font-bold text-xs">4</span> <span class="font-medium text-stone-900">Reconstrua o original no idioma alvo sem consulta.</span></div>
+                    </div>
+                </article>
+
+                <article id="page-4" class="hidden space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
+                    <p>Confronte o seu resultado com o texto original e verifique onde cometeu erros (como artigos, preposições ou conjugações). Esse teste simples remove a muleta do contexto visual e obriga a mente a construir caminhos de recuperação ativa.</p>
+                    <p>Os desvios revelados não são falhas do seu talento ou do seu aplicativo, mas sim o mapa exato de onde a sua atenção consciente precisa atuar.</p>
+
+                    <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-12">5. Limitações e Critérios</h3>
+                    <p>Embora o reconhecimento da ilusão de competência seja um passo crucial, ele é apenas uma ferramenta de diagnóstico e ajuste de postura.</p>
+                    
+                    <ul class="list-disc list-inside space-y-3 mb-6">
+                        <li><strong>O limite do estoque de dados:</strong> Mudar sua postura de passiva para ativa impede o desperdício de tempo, mas não cria conhecimento do nada. Você não pode recuperar ativamente um vocabulário que nunca processou adequadamente.</li>
+                        <li><strong>Fadiga cognitiva:</strong> O esforço de recuperação deliberada consome muito mais energia mental do que o consumo passivo. Tentar realizar sessões de reconstrução por horas resultará em sobrecarga. O foco inicial deve ser a consistência operacional, e não o volume de horas.</li>
+                    </ul>
+
+                    <p>Saber que você está sob o efeito da ilusão de competência e aplicar o Teste de Reconstrução Reversa serve para preparar o terreno. Agora, é necessário aprender a capturar as informações de forma eficiente.</p>
+
+                    <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-12">6. Fechamento Causal</h3>
+                    <p>Se a mera exposição passiva não garante a retenção e o reconhecimento visual cria uma falsa sensação de progresso, como devemos introduzir novas informações de forma que elas de fato comecem a ser processadas pela mente?</p>
+                    <p>Para construir um repertório linguístico real, você precisa primeiro aprender a selecionar materiais adequados e treinar a sua percepção para notar as estruturas que costumam passar despercebidas.</p>
+                    <p class="font-bold text-stone-900">No próximo capítulo, analisaremos como o cérebro processa o que recebe por meio do input compreensível e da atenção seletiva, entrando no mecanismo do noticing.</p>
+                </article>
+
+                <article id="page-5" class="hidden relative min-h-[500px]">
+                    
+                    <div class="blur-[5px] opacity-40 select-none pointer-events-none space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose overflow-hidden">
+                        <h2 class="text-3xl md:text-4xl font-sans font-bold text-stone-900 mb-10 tracking-tight leading-tight">Capítulo 2: Input, processamento e noticing</h2>
+                        <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-8">1. Fenômeno Humano Inicial</h3>
+                        <p>Imagine que você decidiu assistir a um filme no idioma que está estudando. Para se desafiar, você altera o áudio para o idioma original e ativa as legendas, também no idioma original. Durante duas horas, você acompanha a trama perfeitamente. Você ri das piadas, compreende o drama dos personagens e, ao surgirem os créditos, sente uma onda de satisfação: "Assisti a um filme inteiro em outro idioma e entendi tudo!".</p>
+                        <p>No dia seguinte, porém, você tenta conversar com um conhecido estrangeiro ou escrever um texto simples sobre o filme. Ao tentar usar as palavras que acabou de ouvir no dia anterior, você percebe que não consegue se lembrar de uma única estrutura gramatical nova. Você lembra do enredo, da história e até de algumas cenas, mas o idioma em si parece ter passado pela sua mente sem deixar rastros.</p>
+                        <p>Você se pergunta: "Como é possível eu ter compreendido tudo ontem e ser incapaz de usar aquelas mesmas palavras hoje?". Esse cenário reflete o comportamento padrão da nossa atenção...</p>
+                    </div>
+
+                    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 bg-white/20 backdrop-blur-[1px]">
+                        <div class="w-full max-w-lg p-10 bg-white border border-stone-200 text-center shadow-product font-sans">
+                            <i data-lucide="lock" class="w-8 h-8 mx-auto text-stone-300 mb-4"></i>
+                            <h3 class="text-2xl font-semibold text-stone-900 mb-3">Continuar a Leitura</h3>
+                            <p class="text-stone-550 font-serif mb-8 text-base leading-relaxed">Você chegou ao final da amostra gratuita.<br>O <strong>Capítulo 2</strong> detalha a mecânica do Input e do Noticing.</p>
+                            <button onclick="revelarOferta()" class="inline-flex items-center justify-center gap-3 bg-stone-900 text-stone-50 px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-stone-800 transition-colors shadow-product w-full">
+                                Conhecer a Obra Completa
+                                <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                            </button>
+                        </div>
                     </div>
                 </article>
 
             </div>
 
-            <!-- Controles de Navegação (Rodapé) -->
             <div class="flex items-center justify-between border-t border-stone-200 pt-6 mt-10">
                 <button id="btn-prev" disabled onclick="mudarPagina(-1)" class="disabled:opacity-30 disabled:cursor-not-allowed flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-900 hover:text-stone-500 transition-colors p-2 -ml-2">
                     <i data-lucide="chevron-left" class="w-4 h-4"></i> Anterior
                 </button>
                 
-                <span id="page-counter-bottom" class="text-[10px] font-sans font-bold text-stone-400 tracking-widest">1 / 2</span>
+                <span id="page-counter-bottom" class="text-[10px] font-sans font-bold text-stone-400 tracking-widest">1 / 5</span>
                 
                 <button id="btn-next" onclick="mudarPagina(1)" class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-900 hover:text-stone-500 transition-colors p-2 -mr-2">
                     Próxima <i data-lucide="chevron-right" class="w-4 h-4"></i>
@@ -310,10 +414,8 @@
         </div>
     </section>
 
-    <!-- 6. SEÇÃO COMERCIAL (Oculta até a revelação) -->
     <div id="secao-comercial" class="hidden opacity-0 transition-opacity duration-1000 ease-in-out">
         
-        <!-- ECOSSISTEMA DO PRODUTO -->
         <section class="py-24 px-6 bg-white border-b border-stone-200">
             <div class="max-w-7xl mx-auto">
                 <div class="border-b border-stone-200 pb-4 mb-12">
@@ -322,7 +424,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <!-- Essencial -->
                     <div class="border border-stone-300 bg-stone-50 p-8 shadow-paper flex flex-col justify-between">
                         <div>
                             <div class="flex justify-between items-start border-b border-stone-200 pb-4 mb-6">
@@ -341,7 +442,6 @@
                         </div>
                     </div>
 
-                    <!-- Premium -->
                     <div class="border border-stone-800 bg-stone-900 text-stone-100 p-8 shadow-product flex flex-col justify-between relative overflow-hidden">
                         <div class="absolute top-0 right-0 bg-ink-yellow text-stone-900 text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Recomendado</div>
                         <div>
@@ -364,7 +464,6 @@
             </div>
         </section>
 
-        <!-- SOBRE O AUTOR -->
         <section class="py-24 px-6 bg-stone-900 text-stone-50 border-b border-stone-800">
             <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
                 <div class="w-48 h-48 md:w-64 md:h-64 shrink-0 overflow-hidden rounded-full border-4 border-stone-700 shadow-xl relative bg-stone-800">
@@ -383,7 +482,6 @@
             </div>
         </section>
 
-        <!-- PREÇOS E CTAS -->
         <section class="py-24 px-6 bg-stone-50">
             <div class="max-w-5xl mx-auto">
                 <div class="border border-stone-300 bg-white p-8 md:p-12 shadow-product">
@@ -396,7 +494,6 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-10">
-                        <!-- Essencial -->
                         <div class="p-8 bg-stone-50 border border-stone-200 shadow-sm flex flex-col justify-between">
                             <div>
                                 <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">Fundamentos</span>
@@ -414,7 +511,6 @@
                             </div>
                         </div>
                         
-                        <!-- Premium -->
                         <div class="p-8 bg-stone-900 border border-stone-800 shadow-xl text-white flex flex-col justify-between relative overflow-hidden">
                             <div class="absolute top-0 right-0 bg-ink-yellow text-stone-900 text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">
                                 Pacote Completo
@@ -440,7 +536,6 @@
         </section>
     </div>
 
-    <!-- Inicialização de Interatividade e Ícones -->
     <script>
         lucide.createIcons();
 
@@ -469,7 +564,7 @@
 
         // Lógica da Paginação
         let paginaAtual = 1;
-        const totalPaginas = 2; // Atualizado após a remoção do prefácio
+        const totalPaginas = 5; // Atualizado para acomodar as 5 páginas (incluindo o blur final)
 
         function mudarPagina(direcao) {
             const novaPagina = paginaAtual + direcao;
