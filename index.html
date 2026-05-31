@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquitetura de Estudos de Idiomas | Jônatas Rocha</title>
 
-    <!-- Favicon (Ícone Lucide 'layers' incorporado via SVG) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1B19' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
     
     <!-- Tipografia Premium -->
@@ -24,14 +24,14 @@
                 extend: {
                     colors: {
                         stone: {
-                            50: '#F5F4F0',   // Fundo papel encorpado
-                            100: '#EAE8E1',  // Superfícies secundárias
-                            200: '#DCDAD1',  // Bordas e divisores estruturais
+                            50: '#F5F4F0',
+                            100: '#EAE8E1',
+                            200: '#DCDAD1',
                             300: '#C5C2B7',
-                            400: '#9A978C',  // Rótulos e metadados
-                            550: '#646158',  // Corpo de texto
-                            850: '#262522',  // Títulos pesados e nítidos
-                            900: '#1C1B19',  // Preto fosco estrutural
+                            400: '#9A978C',
+                            550: '#646158',
+                            850: '#262522',
+                            900: '#1C1B19',
                         },
                         ink: {
                             blue: '#1A365D',
@@ -67,6 +67,15 @@
             color: #1C1B19;
         }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        
+        /* Animação de Folhear Página */
+        .page-slide {
+            animation: fadeSlideUp 0.4s ease-out forwards;
+        }
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="font-sans font-normal antialiased selection:bg-ink-yellow selection:text-stone-900">
@@ -78,15 +87,14 @@
                 <span class="w-3 h-3 bg-stone-900"></span>
                 <span class="text-xs uppercase tracking-widest font-bold">Arquitetura de Estudos</span>
             </div>
-            <a href="#comprar" class="text-xs font-bold uppercase tracking-wider text-stone-900 border-b-2 border-stone-900 pb-0.5">Acessar a Estrutura</a>
+            <a href="#secao-comercial" id="link-compra-topo" class="text-xs font-medium text-stone-400 hover:text-stone-800 transition-colors">Ver opções de compra</a>
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION: EXPOSIÇÃO IMEDIATA DA CAPA E PREÇO DE ENTRADA -->
+    <!-- 1. HERO SECTION -->
     <header class="pt-28 pb-20 md:pt-40 md:pb-28 px-6 border-b border-stone-200 bg-stone-50">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <!-- Conteúdo Textual (Esquerda) -->
             <div class="lg:col-span-6">
                 <span class="inline-block text-xs uppercase tracking-wider font-bold text-stone-400 mb-4">
                     Um manual de organização cognitiva para estudos autodidatas de idiomas.
@@ -100,16 +108,10 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 mb-8">
-                    <a href="#comprar" class="inline-flex items-center justify-center gap-3 bg-stone-900 text-stone-50 px-8 py-4 text-sm font-bold hover:bg-stone-800 transition-colors shadow-product">
-                        Explorar a Estrutura
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                    
-                    <div class="flex flex-col">
-                        <span class="text-[10px] uppercase font-bold tracking-widest text-stone-400">Acesso a partir de</span>
-                        <span class="text-xl font-bold text-stone-900">R$ 59,00</span>
-                        <span class="text-xs text-stone-500 font-serif">pagamento único</span>
-                    </div>
+                    <button onclick="revelarAmostra()" class="inline-flex items-center justify-center gap-3 bg-stone-900 text-stone-50 px-8 py-4 text-sm font-bold hover:bg-stone-800 transition-colors shadow-product">
+                        Ler Amostra
+                        <i data-lucide="book-open" class="w-4 h-4"></i>
+                    </button>
                 </div>
 
                 <div class="pt-4 border-t border-stone-200">
@@ -120,29 +122,14 @@
                 </div>
             </div>
 
-            <!-- Capa do Livro em Destaque Absoluto (Direita) - AGORA UMA PILHA -->
+            <!-- Capa do Livro -->
             <div class="lg:col-span-6 flex justify-center">
-                <!-- Container principal da pilha, agora com posicionamento relativo para os papéis de baixo -->
                 <div class="relative w-full max-w-md p-8 flex items-center justify-center">
-                    
-                    <!-- O container da pilha em si -->
-                    <div class="relative w-4/5 aspect-[3/4]"> <!-- Usando aspect-ratio para manter a forma do e-book -->
-                        
-                        <!-- PAPÉIS DE BAIXO (Efeito de pilha) -->
-                        <!-- Papel 3 (mais ao fundo) -->
+                    <div class="relative w-4/5 aspect-[3/4]">
                         <div class="absolute inset-0 bg-stone-100 border border-stone-200 shadow-sm transform translate-x-2 translate-y-2 rotate-2 z-10"></div>
-                        <!-- Papel 2 -->
                         <div class="absolute inset-0 bg-stone-50 border border-stone-200 shadow-sm transform translate-x-1 translate-y-1 rotate-1 z-10"></div>
-
-                        <!-- Capa (cover.png) - O ITEM DO TOPO -->
                         <div class="absolute inset-0 z-20 shadow-product border border-stone-300 transform -rotate-1 hover:rotate-0 transition-transform duration-500 bg-white">
                             <img src="cover.png" alt="Capa - Arquitetura de Estudos de Idiomas" class="w-full h-auto block" onerror="this.src='https://placehold.co/600x800/1C1B19/FEF08A?text=Capa+do+Livro'">
-                        </div>
-
-                         <!-- Selo de Formato - Mantido, mas ajustado para o container da pilha -->
-                        <div class="absolute bottom-4 right-4 bg-white border border-stone-300 px-3 py-1.5 shadow-paper z-30 text-[9px] uppercase tracking-widest font-bold text-stone-700 flex items-center gap-2">
-                            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-                            E-book (PDF) + KIT
                         </div>
                     </div>
                 </div>
@@ -151,81 +138,9 @@
         </div>
     </header>
 
-    <!-- 2. ECOSSISTEMA DO PRODUTO: O QUE VOCÊ RECEBE IMEDIATAMENTE -->
-    <section class="py-20 px-6 bg-white border-b border-stone-200">
+    <!-- 2. O PROBLEMA -->
+    <section class="py-24 px-6 bg-white border-b border-stone-200">
         <div class="max-w-7xl mx-auto">
-            <div class="border-b border-stone-200 pb-4 mb-12">
-                <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-1">Mapeamento de Artefatos</span>
-                <h2 class="text-2xl font-semibold text-stone-900">Componentes Inclusos no Sistema</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                
-                <!-- Coluna 1: Oferta Essencial -->
-                <div class="border border-stone-300 bg-stone-50 p-8 shadow-paper flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start border-b border-stone-200 pb-4 mb-6">
-                            <div>
-                                <h3 class="text-lg font-bold text-stone-900">Módulo Essencial</h3>
-                                <p class="text-xs text-stone-400 uppercase tracking-wider font-medium mt-1">Fundação de estudos</p>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-xs font-serif text-stone-400 block">Pagamento Único</span>
-                                <span class="text-xl font-bold text-stone-900">R$ 59,00</span>
-                            </div>
-                        </div>
-                        <ul class="space-y-4 text-sm text-stone-550 font-serif mb-8">
-                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>E-book completo:</strong> Guia de governança autodidata e estruturação da atenção.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Fichas operacionais:</strong> Material focado em auditoria semanal.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Infográficos visuais:</strong> Diagramas esquemáticos para fixação de conceitos.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Log diário:</strong> Ferramenta para documentar autoexperimentação.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Prompt mestre:</strong> Guia de comandos essenciais para estudos.</span></li>
-                        </ul>
-                    </div>
-                    <div class="border-t border-stone-200 pt-4">
-                        <p class="text-[10px] uppercase font-bold tracking-widest text-stone-400 mb-2">Entregável via Hotmart</p>
-                        <div class="text-xs text-stone-500 font-serif">Acesso imediato à fundação teórica e prática da obra.</div>
-                    </div>
-                </div>
-
-                <!-- Coluna 2: Oferta Premium -->
-                <div class="border border-stone-800 bg-stone-900 text-stone-100 p-8 shadow-product flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-ink-yellow text-stone-900 text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">
-                        Recomendado
-                    </div>
-                    <div>
-                        <div class="flex justify-between items-start border-b border-stone-700 pb-4 mb-6">
-                            <div>
-                                <h3 class="text-lg font-bold text-white">Suíte Premium</h3>
-                                <p class="text-xs text-stone-500 uppercase tracking-wider font-medium mt-1">Ambientes digitais e imersão</p>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-xs font-serif text-stone-550 block text-stone-400">Pagamento Único</span>
-                                <span class="text-xl font-bold text-ink-yellow">R$ 89,00</span>
-                            </div>
-                        </div>
-                        <ul class="space-y-4 text-sm text-stone-300 font-serif mb-8">
-                            <li class="flex items-start gap-3 border-b border-stone-800 pb-3"><i data-lucide="layers" class="w-4 h-4 text-white shrink-0 mt-1"></i> <span>Tudo do Módulo Essencial, mais:</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Resumos em áudio:</strong> Recapitulação auditiva capítulo a capítulo.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Laboratório de prompts:</strong> Engenharia avançada com IA para idiomas.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Apresentações visuais:</strong> Slides completos de cada capítulo do livro.</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Templates interativos:</strong> Sistemas prontos para uso no Notion e Obsidian.</span></li>
-                        </ul>
-                    </div>
-                    <div class="border-t border-stone-800 pt-4">
-                        <p class="text-[10px] uppercase font-bold tracking-widest text-ink-yellow mb-2">Kit de Aceleração Prática</p>
-                        <div class="text-xs text-stone-400 font-serif">Sistemas operacionais prontos para implementação visual e organizacional imediata.</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. UTILIDADE DINÂMICA: IDENTIFICAÇÃO IMEDIATA & SATURAÇÃO -->
-    <section class="py-24 px-6 border-b border-stone-200">
-        <div class="max-w-7xl mx-auto">
-            
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-24">
                 <div class="lg:col-span-5">
                     <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Simulação de Uso</span>
@@ -238,7 +153,6 @@
                 </div>
             </div>
 
-            <!-- Demonstração dos Cenários -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-24">
                 <div class="p-8 border border-stone-200 bg-white shadow-paper flex flex-col justify-between">
                     <div>
@@ -271,47 +185,23 @@
                     </div>
                 </div>
             </div>
-
-            <div class="max-w-3xl mx-auto border-t border-stone-200 pt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-5">
-                    <h3 class="text-xl font-semibold text-stone-900">O resultado da saturação:</h3>
-                    <ul class="mt-4 space-y-2 text-xs font-bold uppercase text-stone-400 tracking-wider">
-                        <li>• fadiga precoce</li>
-                        <li>• releitura constante</li>
-                        <li>• dificuldade de retenção</li>
-                        <li>• travamento na fala</li>
-                        <li class="text-stone-800">• lentidão mental</li>
-                    </ul>
-                </div>
-                <div class="md:col-span-7 font-serif text-base text-stone-550 leading-relaxed space-y-4">
-                    <p class="font-sans text-sm font-bold text-stone-900 uppercase tracking-wide">A memória de trabalho possui limite.</p>
-                    <p>Quando vocabulário, gramática, tradução mental e autocorreção acontecem simultaneamente, o processamento entra em saturação.</p>
-                    <p class="font-sans font-bold text-stone-900 text-sm italic pt-2">
-                        Conclusão: Nem sempre o problema é esforço insuficiente. Às vezes o problema é excesso de carga ao mesmo tempo.
-                    </p>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- 4. FUNCIONAMENTO DA ESTRUTURA: COMO O MATERIAL ORGANIZA O ESTUDO -->
-    <section class="py-24 px-6 bg-white border-b border-stone-200">
+    <!-- 3. O MECANISMO -->
+    <section class="py-24 px-6 bg-stone-50 border-b border-stone-200">
         <div class="max-w-7xl mx-auto">
-            
             <div class="max-w-3xl mb-16">
                 <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Engenharia Organizacional</span>
                 <h2 class="text-2xl md:text-3xl font-semibold text-stone-900">A mecânica prática desenvolvida no livro.</h2>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                
-                <!-- Texto e Detalhes da Carga -->
                 <div class="lg:col-span-6 space-y-6 font-serif text-base text-stone-550 leading-relaxed">
                     <p class="font-sans text-sm font-bold text-stone-900 uppercase tracking-wider">O que a obra executa:</p>
                     <p>O livro apresenta uma arquitetura prática para reduzir atrito cognitivo e melhorar recuperação ativa da linguagem.</p>
                     
-                    <div class="p-5 border-l-2 border-stone-900 bg-stone-50 font-sans text-xs font-semibold text-stone-800 space-y-2">
+                    <div class="p-5 border-l-2 border-stone-900 bg-white font-sans text-xs font-semibold text-stone-800 space-y-2">
                         <p class="uppercase tracking-wider text-[10px] text-stone-400">Pilares Operacionais Dedicados</p>
                         <p>• percepção ativa da estrutura / segmentação em blocos menores</p>
                         <p>• recuperação ativa / repetição espaçada manual</p>
@@ -323,20 +213,14 @@
                     </p>
                 </div>
 
-                <!-- Diagrama de Circulação da Atenção -->
-                <div class="lg:col-span-6 bg-stone-50 border border-stone-300 p-8 shadow-paper">
+                <div class="lg:col-span-6 bg-white border border-stone-300 p-8 shadow-paper">
                     <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-6">Fluxo Espacial do Estudo</span>
-                    
                     <div class="flex flex-col gap-3 font-sans text-xs font-medium">
-                        <div class="p-3 bg-white border border-stone-200 flex justify-between items-center">
+                        <div class="p-3 bg-stone-50 border border-stone-200 flex justify-between items-center">
                             <span>Contato com o idioma</span>
                             <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-300"></i>
                         </div>
-                        <div class="p-3 bg-white border border-stone-200 flex justify-between items-center">
-                            <span>Percepção da estrutura</span>
-                            <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-300"></i>
-                        </div>
-                        <div class="p-3 bg-white border border-stone-200 flex justify-between items-center bg-stone-100">
+                        <div class="p-3 bg-stone-50 border border-stone-200 flex justify-between items-center bg-stone-100">
                             <span>Organização em blocos utilizáveis</span>
                             <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-400"></i>
                         </div>
@@ -344,143 +228,285 @@
                             <span class="font-bold">Recuperação ativa</span>
                             <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-900"></i>
                         </div>
-                        <div class="p-3 bg-white border border-stone-300 flex justify-between items-center border-l-4 border-l-stone-900">
-                            <span class="font-bold">Repetição espaçada</span>
-                            <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-900"></i>
-                        </div>
                         <div class="p-3 bg-stone-900 text-white flex justify-between items-center shadow-product">
                             <span class="font-bold uppercase tracking-wider text-[10px]">Uso espontâneo</span>
                             <i data-lucide="check-circle-2" class="w-4 h-4 text-white"></i>
                         </div>
                     </div>
-                    
-                    <p class="mt-6 font-serif text-xs italic text-stone-400 leading-relaxed">
-                        A retenção melhora quando o cérebro precisa recuperar a estrutura sem apoio visual constante.
-                    </p>
                 </div>
-
             </div>
-
         </div>
     </section>
 
-    <!-- 5. APROFUNDAMENTO: REDUÇÃO DE CULPA E MATURIDADE -->
-    <section class="py-24 px-6 bg-stone-100 border-b border-stone-200">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-3">Ambiente de Aprendizagem Habitado</span>
-            <h2 class="text-2xl md:text-3xl font-semibold text-stone-900 tracking-tight mb-8">Nem sempre o problema era falta de capacidade.</h2>
-            
-            <p class="font-serif text-base md:text-lg text-stone-550 leading-relaxed max-w-2xl mx-auto mb-8">
-                Muitos estudantes passam anos alternando entre aplicativos, vídeos, métodos, cronogramas, cursos e técnicas diferentes. Ainda assim, continuam travando ao tentar falar o idioma espontaneamente.
+    <!-- 4. INTRODUÇÃO DA AMOSTRA -->
+    <section class="py-24 px-6 bg-stone-100 border-b border-stone-200 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-3">Experiência Imersiva</span>
+            <h2 class="text-3xl md:text-4xl font-semibold text-stone-900 mb-6 tracking-tight">Leia uma Amostra</h2>
+            <p class="font-serif text-lg text-stone-550 mb-10 leading-relaxed">
+                Antes de conhecer as opções de acesso, comece a ler a obra agora mesmo. A experiência de leitura está integrada nativamente abaixo, com suporte à paginação, sem necessidade de baixar PDFs.
             </p>
-
-            <div class="max-w-xl mx-auto border-t border-stone-300 pt-8">
-                <p class="font-serif font-medium text-stone-900 text-lg md:text-xl leading-relaxed">
-                    Frequentemente, o problema não está na ausência de contato. Está na forma como a atenção foi organizada durante o estudo.
-                </p>
-            </div>
+            <button onclick="revelarAmostra()" class="inline-flex items-center justify-center gap-3 bg-stone-900 text-stone-50 px-10 py-4 text-sm font-bold uppercase tracking-wider hover:bg-stone-800 transition-colors shadow-product">
+                Ler Amostra
+                <i data-lucide="book-open" class="w-4 h-4"></i>
+            </button>
         </div>
     </section>
 
-    <!-- 6. SOBRE O AUTOR -->
-    <section class="py-24 px-6 bg-stone-900 text-stone-50 border-b border-stone-800">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
-            <div class="w-48 h-48 md:w-64 md:h-64 shrink-0 overflow-hidden rounded-full border-4 border-stone-700 shadow-xl relative bg-stone-800">
-                <img src="author.jpg" alt="Jônatas de Aquino Rocha" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" onerror="this.src='https://ui-avatars.com/api/?name=Jônatas+Rocha&background=262522&color=F5F4F0&size=400'">
-            </div>
-            <div>
-                <span class="text-[10px] uppercase tracking-widest font-bold text-ink-yellow mb-3 block flex items-center gap-2">
-                    <i data-lucide="pen-tool" class="w-4 h-4"></i> O Autor
-                </span>
-                <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">Jônatas de Aquino Rocha</h2>
-                <div class="space-y-4 text-sm md:text-base text-stone-300 font-serif leading-relaxed">
-                    <p>
-                        Estudante autodidata e analista focado no desenvolvimento de rotinas estratégicas e protocolos operacionais aplicados ao aprendizado de idiomas. Dedica-se a investigar como os limites de atenção seletiva, a memória de trabalho e a gestão de carga cognitiva determinam a retenção e a fluidez na fala ativa, buscando aplicar os achados da ciência cognitiva de forma prática no cotidiano.
-                    </p>
-                    <p>
-                        É o criador deste ecossistema modular de estudos, cujo objetivo é substituir abordagens comerciais genéricas por uma engenharia de precisão baseada em dados de desempenho individuais, devolvendo ao estudante a soberania autodidata.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. DECISÃO SERENA & SUMÁRIO COM PREÇOS REAIS -->
-    <section id="comprar" class="py-24 px-6 bg-stone-50">
-        <div class="max-w-5xl mx-auto">
+    <!-- 5. SEÇÃO DE LEITURA PAGINADA (Oculta inicialmente) -->
+    <section id="amostra-container" class="hidden bg-white py-24 px-6 border-b border-stone-200">
+        <div class="max-w-2xl mx-auto">
             
-            <div class="border border-stone-300 bg-white p-8 md:p-12 shadow-product">
+            <!-- Header E-reader -->
+            <div class="flex items-center justify-between border-b border-stone-200 pb-4 mb-10">
+                <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 flex items-center gap-2">
+                    <i data-lucide="book" class="w-3 h-3"></i> Modo de Leitura
+                </span>
+                <span id="page-counter-top" class="text-xs font-serif text-stone-500 italic">Página 1 de 2</span>
+            </div>
+
+            <!-- Corpo das Páginas -->
+            <div id="book-content" class="min-h-[400px]">
                 
-                <div class="text-center mb-10 border-b border-stone-200 pb-6 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div class="text-left">
-                        <h2 class="text-2xl font-semibold text-stone-900">Acesso ao Sistema de Estudos</h2>
-                        <p class="text-xs font-serif text-stone-400 italic mt-1">Escolha o nível de sustentação para sua rotina</p>
-                    </div>
-                    
-                    <!-- Capa Reduzida de Referência -->
-                    <div class="w-20 shadow-paper border border-stone-300 hidden md:block">
-                        <img src="cover.png" alt="Arquitetura de Estudos" class="w-full h-auto" onerror="this.src='https://placehold.co/100x140/1C1B19/FEF08A'">
-                    </div>
-                </div>
+                <!-- PÁGINA 1 -->
+                <article id="page-1" class="page-slide block space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
+                    <h2 class="text-3xl md:text-4xl font-sans font-bold text-stone-900 mb-10 tracking-tight leading-tight">Capítulo 1: Por que aprender idiomas com arquitetura cognitiva?</h2>
+                    <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6">1. Fenômeno Humano Inicial</h3>
+                    <p>Imagine a seguinte cena: você decide aprender um novo idioma. Entusiasmado, baixa o aplicativo de idiomas mais popular do mercado, com suas notificações amigáveis e interface colorida. Você passa trinta minutos por dia completando frases, arrastando palavras para os seus devidos lugares e ganhando pontos de experiência em um ranking virtual. Após algumas semanas de consistência inabalável, o aplicativo exibe orgulhosamente uma insígnia: "Você completou 45% do curso!".</p>
+                    <p>Sentindo-se confiante, você decide testar seus novos conhecimentos. Abre um vídeo de um falante nativo na internet ou coloca um episódio de uma série de TV sem legendas em português. Em vez de compreender o diálogo, tudo o que você ouve é uma massa confusa de sons rápidos. Ou pior: você tenta escrever um e-mail de trabalho simples ou responder a uma pergunta espontânea feita por um estrangeiro na rua. Você hesita, gagueja e percebe que as palavras que pareciam tão fáceis na tela do aplicativo simplesmente não aparecem.</p>
+                </article>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-10">
-                    <!-- Opção 1: Essencial -->
-                    <div class="p-8 bg-stone-50 border border-stone-200 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">Fundamentos</span>
-                            <h3 class="text-xl font-bold text-stone-900 uppercase tracking-wide mb-1">Módulo Essencial</h3>
-                            <p class="text-xs text-stone-500 font-serif mb-6">O manual completo, fichas de auditoria, infográficos, logs e o prompt mestre.</p>
-                        </div>
-                        <div class="border-t border-stone-200 pt-6 mt-auto">
-                            <div class="mb-4">
-                                <span class="text-3xl font-bold text-stone-900">R$ 59,00</span>
-                                <span class="text-[10px] text-stone-500 block mt-1 uppercase tracking-widest font-bold">Pagamento único</span>
-                            </div>
-                            <a href="https://pay.hotmart.com/T106053637Y"
-   class="block text-center w-full bg-stone-200 text-stone-900 text-xs uppercase tracking-widest font-bold py-4 hover:bg-stone-300 transition-colors"
-   target="_blank" rel="noopener noreferrer">
-  Adquirir Essencial
-</a>
-                        </div>
-                    </div>
+                <!-- PÁGINA 2 -->
+                <article id="page-2" class="hidden space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
+                    <p>Uma frustração silenciosa se instala. Você passa a acreditar que o problema é sua memória, sua idade ou a falta de um "talento natural" para línguas. A reação imediata costuma ser duplicar a aposta: comprar um curso mais caro, assinar outro aplicativo ou tentar consumir horas seguidas de filmes em áudio original. No entanto, o padrão de paralisia se repete.</p>
+                    <p>O que ocorre nesse momento não é uma falha de inteligência, falta de empenho ou um defeito inerente à plataforma escolhida. É o resultado previsível de uma postura atencional que treinou a sua mente para uma tarefa cognitiva inteiramente diferente daquela exigida para produzir o idioma de forma ativa. O erro não está no software ou no hardware do seu método, mas na ausência de um sistema operacional de governança que saiba extrair o esforço útil da ferramenta.</p>
                     
-                    <!-- Opção 2: Premium -->
-                    <div class="p-8 bg-stone-900 border border-stone-800 shadow-xl text-white flex flex-col justify-between relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-ink-yellow text-stone-900 text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">
-                            Pacote Completo
-                        </div>
-                        <div>
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">Imersão Total</span>
-                            <h3 class="text-xl font-bold text-white uppercase tracking-wide mb-1">Suíte Premium</h3>
-                            <p class="text-xs text-stone-300 font-serif mb-6">Tudo do essencial, além de áudios práticos, laboratório de prompts, slides em apresentação e templates para Notion e Obsidian.</p>
-                        </div>
-                        <div class="border-t border-stone-700 pt-6 mt-auto">
-                            <div class="mb-4">
-                                <span class="text-3xl font-bold text-ink-yellow">R$ 89,00</span>
-                                <span class="text-[10px] text-stone-400 block mt-1 uppercase tracking-widest font-bold">Pagamento único</span>
-                            </div>
-                            <a href="https://pay.hotmart.com/W106063643R" class="block text-center w-full bg-white text-stone-900 text-xs uppercase tracking-widest font-bold py-4 hover:bg-stone-200 transition-colors" target="_blank" rel="noopener noreferrer">Adquirir Premium</a>
-                        </div>
+                    <!-- Final da Amostra (Só exibe na última página) -->
+                    <div class="mt-16 p-10 bg-stone-50 border border-stone-200 text-center shadow-paper font-sans">
+                        <h3 class="text-2xl font-semibold text-stone-900 mb-3">Continuar a Leitura</h3>
+                        <p class="text-stone-550 font-serif mb-8 text-lg">Você chegou ao final da amostra gratuita.</p>
+                        <button onclick="revelarOferta()" class="inline-flex items-center justify-center gap-3 bg-stone-900 text-stone-50 px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-stone-800 transition-colors shadow-product">
+                            Conhecer a Obra Completa
+                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </button>
                     </div>
-                </div>
+                </article>
 
-                <div class="border-t border-stone-200 pt-8 max-w-xl mx-auto text-center font-serif text-xs text-stone-400 leading-relaxed">
-                    <p>O objetivo deste material não é transformar estudo em entretenimento constante. É ajudar você a construir uma rotina cognitivamente sustentável, organizada e utilizável no longo prazo.</p>
-                </div>
             </div>
 
-            <div class="mt-16 flex justify-between items-center text-[9px] uppercase tracking-widest font-bold text-stone-400 px-4">
-                <span>© 2026</span>
-                <span>Arquitetura de Estudos de Idiomas</span>
-                <span>Soberania Autodidata</span>
+            <!-- Controles de Navegação (Rodapé) -->
+            <div class="flex items-center justify-between border-t border-stone-200 pt-6 mt-10">
+                <button id="btn-prev" disabled onclick="mudarPagina(-1)" class="disabled:opacity-30 disabled:cursor-not-allowed flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-900 hover:text-stone-500 transition-colors p-2 -ml-2">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i> Anterior
+                </button>
+                
+                <span id="page-counter-bottom" class="text-[10px] font-sans font-bold text-stone-400 tracking-widest">1 / 2</span>
+                
+                <button id="btn-next" onclick="mudarPagina(1)" class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-900 hover:text-stone-500 transition-colors p-2 -mr-2">
+                    Próxima <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
             </div>
-
+            
         </div>
     </section>
 
-    <!-- Inicialização dos Ícones -->
+    <!-- 6. SEÇÃO COMERCIAL (Oculta até a revelação) -->
+    <div id="secao-comercial" class="hidden opacity-0 transition-opacity duration-1000 ease-in-out">
+        
+        <!-- ECOSSISTEMA DO PRODUTO -->
+        <section class="py-24 px-6 bg-white border-b border-stone-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="border-b border-stone-200 pb-4 mb-12">
+                    <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-1">Mapeamento de Artefatos</span>
+                    <h2 class="text-2xl font-semibold text-stone-900">Componentes Inclusos no Sistema</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Essencial -->
+                    <div class="border border-stone-300 bg-stone-50 p-8 shadow-paper flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start border-b border-stone-200 pb-4 mb-6">
+                                <div>
+                                    <h3 class="text-lg font-bold text-stone-900">Módulo Essencial</h3>
+                                    <p class="text-xs text-stone-400 uppercase tracking-wider font-medium mt-1">Fundação de estudos</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 text-sm text-stone-550 font-serif mb-8">
+                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>E-book completo:</strong> Guia de governança autodidata e estruturação da atenção.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Fichas operacionais:</strong> Material focado em auditoria semanal.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Infográficos visuais:</strong> Diagramas esquemáticos para fixação de conceitos.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Log diário:</strong> Ferramenta para documentar autoexperimentação.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Prompt mestre:</strong> Guia de comandos essenciais para estudos.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Premium -->
+                    <div class="border border-stone-800 bg-stone-900 text-stone-100 p-8 shadow-product flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-ink-yellow text-stone-900 text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Recomendado</div>
+                        <div>
+                            <div class="flex justify-between items-start border-b border-stone-700 pb-4 mb-6">
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">Suíte Premium</h3>
+                                    <p class="text-xs text-stone-500 uppercase tracking-wider font-medium mt-1">Ambientes digitais e imersão</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 text-sm text-stone-300 font-serif mb-8">
+                                <li class="flex items-start gap-3 border-b border-stone-800 pb-3"><i data-lucide="layers" class="w-4 h-4 text-white shrink-0 mt-1"></i> <span>Tudo do Módulo Essencial, mais:</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Resumos em áudio:</strong> Recapitulação auditiva capítulo a capítulo.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Laboratório de prompts:</strong> Engenharia avançada com IA para idiomas.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Apresentações visuais:</strong> Slides completos de cada capítulo do livro.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Templates interativos:</strong> Sistemas prontos para uso no Notion e Obsidian.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE O AUTOR -->
+        <section class="py-24 px-6 bg-stone-900 text-stone-50 border-b border-stone-800">
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                <div class="w-48 h-48 md:w-64 md:h-64 shrink-0 overflow-hidden rounded-full border-4 border-stone-700 shadow-xl relative bg-stone-800">
+                    <img src="author.jpg" alt="Jônatas de Aquino Rocha" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" onerror="this.src='https://ui-avatars.com/api/?name=Jônatas+Rocha&background=262522&color=F5F4F0&size=400'">
+                </div>
+                <div>
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-ink-yellow mb-3 block flex items-center gap-2">
+                        <i data-lucide="pen-tool" class="w-4 h-4"></i> O Autor
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">Jônatas de Aquino Rocha</h2>
+                    <div class="space-y-4 text-sm md:text-base text-stone-300 font-serif leading-relaxed">
+                        <p>Estudante autodidata e analista focado no desenvolvimento de rotinas estratégicas e protocolos operacionais aplicados ao aprendizado de idiomas.</p>
+                        <p>É o criador deste ecossistema modular de estudos, cujo objetivo é substituir abordagens comerciais genéricas por uma engenharia de precisão baseada em dados de desempenho individuais, devolvendo ao estudante a soberania autodidata.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREÇOS E CTAS -->
+        <section class="py-24 px-6 bg-stone-50">
+            <div class="max-w-5xl mx-auto">
+                <div class="border border-stone-300 bg-white p-8 md:p-12 shadow-product">
+                    
+                    <div class="text-center mb-10 border-b border-stone-200 pb-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div class="text-left">
+                            <h2 class="text-2xl font-semibold text-stone-900">Acesso ao Sistema de Estudos</h2>
+                            <p class="text-xs font-serif text-stone-400 italic mt-1">Escolha o nível de sustentação para sua rotina</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-10">
+                        <!-- Essencial -->
+                        <div class="p-8 bg-stone-50 border border-stone-200 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">Fundamentos</span>
+                                <h3 class="text-xl font-bold text-stone-900 uppercase tracking-wide mb-1">Módulo Essencial</h3>
+                                <p class="text-xs text-stone-500 font-serif mb-6">O manual completo, fichas de auditoria, infográficos, logs e o prompt mestre.</p>
+                            </div>
+                            <div class="border-t border-stone-200 pt-6 mt-auto">
+                                <div class="mb-4">
+                                    <span class="text-3xl font-bold text-stone-900">R$ 59,00</span>
+                                    <span class="text-[10px] text-stone-500 block mt-1 uppercase tracking-widest font-bold">Pagamento único</span>
+                                </div>
+                                <a href="https://pay.hotmart.com/T106053637Y" class="block text-center w-full bg-stone-200 text-stone-900 text-xs uppercase tracking-widest font-bold py-4 hover:bg-stone-300 transition-colors" target="_blank" rel="noopener noreferrer">
+                                    Adquirir Essencial
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Premium -->
+                        <div class="p-8 bg-stone-900 border border-stone-800 shadow-xl text-white flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-ink-yellow text-stone-900 text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">
+                                Pacote Completo
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">Imersão Total</span>
+                                <h3 class="text-xl font-bold text-white uppercase tracking-wide mb-1">Suíte Premium</h3>
+                                <p class="text-xs text-stone-300 font-serif mb-6">Tudo do essencial, além de áudios práticos, laboratório de prompts, slides em apresentação e templates.</p>
+                            </div>
+                            <div class="border-t border-stone-700 pt-6 mt-auto">
+                                <div class="mb-4">
+                                    <span class="text-3xl font-bold text-ink-yellow">R$ 89,00</span>
+                                    <span class="text-[10px] text-stone-400 block mt-1 uppercase tracking-widest font-bold">Pagamento único</span>
+                                </div>
+                                <a href="https://pay.hotmart.com/W106063643R" class="block text-center w-full bg-white text-stone-900 text-xs uppercase tracking-widest font-bold py-4 hover:bg-stone-200 transition-colors" target="_blank" rel="noopener noreferrer">
+                                    Adquirir Premium
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Inicialização de Interatividade e Ícones -->
     <script>
         lucide.createIcons();
+
+        function revelarAmostra() {
+            const amostraContainer = document.getElementById('amostra-container');
+            amostraContainer.classList.remove('hidden');
+            setTimeout(() => {
+                amostraContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+        }
+
+        function revelarOferta() {
+            const secaoComercial = document.getElementById('secao-comercial');
+            secaoComercial.classList.remove('hidden');
+            
+            setTimeout(() => {
+                secaoComercial.classList.remove('opacity-0');
+                secaoComercial.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+        }
+
+        document.getElementById('link-compra-topo').addEventListener('click', function(e) {
+            e.preventDefault();
+            revelarOferta();
+        });
+
+        // Lógica da Paginação
+        let paginaAtual = 1;
+        const totalPaginas = 2; // Atualizado após a remoção do prefácio
+
+        function mudarPagina(direcao) {
+            const novaPagina = paginaAtual + direcao;
+            if (novaPagina < 1 || novaPagina > totalPaginas) return;
+
+            // Ocultar página atual
+            const elementPaginaAtual = document.getElementById(`page-${paginaAtual}`);
+            elementPaginaAtual.classList.add('hidden');
+            elementPaginaAtual.classList.remove('block', 'page-slide');
+
+            // Atualizar estado
+            paginaAtual = novaPagina;
+
+            // Mostrar nova página com animação
+            const elementNovaPagina = document.getElementById(`page-${paginaAtual}`);
+            elementNovaPagina.classList.remove('hidden');
+            void elementNovaPagina.offsetWidth; 
+            elementNovaPagina.classList.add('block', 'page-slide');
+
+            // Atualizar textos dos contadores
+            document.getElementById('page-counter-top').innerText = `Página ${paginaAtual} de ${totalPaginas}`;
+            document.getElementById('page-counter-bottom').innerText = `${paginaAtual} / ${totalPaginas}`;
+
+            // Atualizar estado dos botões
+            document.getElementById('btn-prev').disabled = paginaAtual === 1;
+            
+            const btnNext = document.getElementById('btn-next');
+            if (paginaAtual === totalPaginas) {
+                btnNext.classList.add('opacity-30', 'cursor-not-allowed');
+                btnNext.disabled = true;
+            } else {
+                btnNext.classList.remove('opacity-30', 'cursor-not-allowed');
+                btnNext.disabled = false;
+            }
+
+            document.getElementById('amostra-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     </script>
 </body>
 </html>
