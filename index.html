@@ -63,15 +63,6 @@
             color: #1C1B19;
         }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        
-        /* Animação de Folhear Página */
-        .page-slide {
-            animation: fadeSlideUp 0.4s ease-out forwards;
-        }
-        @keyframes fadeSlideUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body class="font-sans font-normal antialiased selection:bg-ink-yellow selection:text-stone-900">
@@ -246,16 +237,15 @@
     <section id="amostra-container" class="hidden bg-white py-24 px-6 border-b border-stone-200">
         <div class="max-w-2xl mx-auto">
             
-            <div class="flex items-center justify-between border-b border-stone-200 pb-4 mb-10">
+            <div class="border-b border-stone-200 pb-4 mb-10">
                 <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 flex items-center gap-2">
                     <i data-lucide="book" class="w-3 h-3"></i> Modo de Leitura
                 </span>
-                <span id="page-counter-top" class="text-xs font-serif text-stone-500 italic">Página 1 de 5</span>
             </div>
 
             <div id="book-content" class="min-h-[400px]">
                 
-                <article id="page-1" class="page-slide block space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
+                <article id="page-1" class="space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
                     <h2 class="text-3xl md:text-4xl font-sans font-bold text-stone-900 mb-10 tracking-tight leading-tight">Capítulo 1: Por que aprender idiomas com arquitetura cognitiva?</h2>
                     
                     <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-8">1. Fenômeno Humano Inicial</h3>
@@ -288,7 +278,7 @@
                     <p>Ao realizar este exercício, é comum sentir uma hesitação sobre qual tempo verbal usar, ou uma dúvida sutil sobre preposições e a ordem correta das palavras. Este contraste revela uma falha estrutural na forma como a maioria dos estudantes avalia o próprio progresso. A ilusão de que compreender um texto ou reconhecer uma palavra em um teste de múltipla escolha significa "saber" o idioma é um viés cognitivo comum.</p>
                 </article>
 
-                <article id="page-2" class="hidden space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
+                <article id="page-2" class="space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose mt-16 pt-16 border-t border-stone-200">
                     <p>Você consegue reconhecer o padrão visual quando ele é apresentado (Tarefa A), mas encontra sérias dificuldades ao tentar reconstruir esse mesmo padrão a partir do zero (Tarefa B).</p>
 
                     <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-12">3. Explicação Mínima Necessária</h3>
@@ -317,7 +307,7 @@
                     <p>Compreender este viés não significa que você deve demonizar ou descartar os aplicativos populares de mercado. Significa entender que eles operam predominantemente na camada do reconhecimento visual. Em sentido lato, todo método funciona se você souber hackear sua própria postura operacional para extrair fricção ativa dele.</p>
                 </article>
 
-                <article id="page-3" class="hidden space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
+                <article id="page-3" class="space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose mt-16 pt-16 border-t border-stone-200">
                     <p>Se você deixar a mente rodar no piloto automático da gamificação, o conhecimento permanecerá volátil e se dissipará assim que os estímulos e as pistas da tela forem removidos.</p>
 
                     <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-12">4. Operacionalização</h3>
@@ -354,7 +344,7 @@
                     </div>
                 </article>
 
-                <article id="page-4" class="hidden space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose">
+                <article id="page-4" class="space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose mt-16 pt-16 border-t border-stone-200">
                     <p>Confronte o seu resultado com o texto original e verifique onde cometeu erros (como artigos, preposições ou conjugações). Esse teste simples remove a muleta do contexto visual e obriga a mente a construir caminhos de recuperação ativa.</p>
                     <p>Os desvios revelados não são falhas do seu talento ou do seu aplicativo, mas sim o mapa exato de onde a sua atenção consciente precisa atuar.</p>
 
@@ -374,7 +364,7 @@
                     <p class="font-bold text-stone-900">No próximo capítulo, analisaremos como o cérebro processa o que recebe por meio do input compreensível e da atenção seletiva, entrando no mecanismo do noticing.</p>
                 </article>
 
-                <article id="page-5" class="hidden relative min-h-[500px]">
+                <article id="page-5" class="relative min-h-[500px] mt-16 pt-16 border-t border-stone-200">
                     
                     <div class="blur-[5px] opacity-40 select-none pointer-events-none space-y-6 font-serif text-lg md:text-xl text-stone-700 leading-loose overflow-hidden">
                         <h2 class="text-3xl md:text-4xl font-sans font-bold text-stone-900 mb-10 tracking-tight leading-tight">Capítulo 2: Input, processamento e noticing</h2>
@@ -397,18 +387,6 @@
                     </div>
                 </article>
 
-            </div>
-
-            <div class="flex items-center justify-between border-t border-stone-200 pt-6 mt-10">
-                <button id="btn-prev" disabled onclick="mudarPagina(-1)" class="disabled:opacity-30 disabled:cursor-not-allowed flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-900 hover:text-stone-500 transition-colors p-2 -ml-2">
-                    <i data-lucide="chevron-left" class="w-4 h-4"></i> Anterior
-                </button>
-                
-                <span id="page-counter-bottom" class="text-[10px] font-sans font-bold text-stone-400 tracking-widest">1 / 5</span>
-                
-                <button id="btn-next" onclick="mudarPagina(1)" class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-900 hover:text-stone-500 transition-colors p-2 -mr-2">
-                    Próxima <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </button>
             </div>
             
         </div>
@@ -561,47 +539,6 @@
             e.preventDefault();
             revelarOferta();
         });
-
-        // Lógica da Paginação
-        let paginaAtual = 1;
-        const totalPaginas = 5; // Atualizado para acomodar as 5 páginas (incluindo o blur final)
-
-        function mudarPagina(direcao) {
-            const novaPagina = paginaAtual + direcao;
-            if (novaPagina < 1 || novaPagina > totalPaginas) return;
-
-            // Ocultar página atual
-            const elementPaginaAtual = document.getElementById(`page-${paginaAtual}`);
-            elementPaginaAtual.classList.add('hidden');
-            elementPaginaAtual.classList.remove('block', 'page-slide');
-
-            // Atualizar estado
-            paginaAtual = novaPagina;
-
-            // Mostrar nova página com animação
-            const elementNovaPagina = document.getElementById(`page-${paginaAtual}`);
-            elementNovaPagina.classList.remove('hidden');
-            void elementNovaPagina.offsetWidth; 
-            elementNovaPagina.classList.add('block', 'page-slide');
-
-            // Atualizar textos dos contadores
-            document.getElementById('page-counter-top').innerText = `Página ${paginaAtual} de ${totalPaginas}`;
-            document.getElementById('page-counter-bottom').innerText = `${paginaAtual} / ${totalPaginas}`;
-
-            // Atualizar estado dos botões
-            document.getElementById('btn-prev').disabled = paginaAtual === 1;
-            
-            const btnNext = document.getElementById('btn-next');
-            if (paginaAtual === totalPaginas) {
-                btnNext.classList.add('opacity-30', 'cursor-not-allowed');
-                btnNext.disabled = true;
-            } else {
-                btnNext.classList.remove('opacity-30', 'cursor-not-allowed');
-                btnNext.disabled = false;
-            }
-
-            document.getElementById('amostra-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
     </script>
 </body>
 </html>
