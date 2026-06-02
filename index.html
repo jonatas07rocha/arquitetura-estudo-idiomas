@@ -63,6 +63,19 @@
             color: #1C1B19;
         }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Efeito de marca-texto animado ao rolar a página */
+        .marker-highlight {
+            background-image: linear-gradient(to right, rgba(254, 240, 138, 0.9) 50%, transparent 50%);
+            background-position: 100% 0;
+            background-size: 200% 100%;
+            transition: background-position 0.6s ease-in-out;
+            display: inline;
+            padding: 0.1em 0.2em;
+        }
+        .marker-highlight.is-visible {
+            background-position: 0 0;
+        }
     </style>
 </head>
 <body class="font-sans font-normal antialiased selection:bg-ink-yellow selection:text-stone-900">
@@ -82,14 +95,14 @@
             
             <div class="lg:col-span-6">
                 <span class="inline-block text-xs uppercase tracking-wider font-bold text-stone-400 mb-4">
-                    Um manual de organização cognitiva para estudos autodidatas de idiomas.
+                    Baseado em ciência cognitiva para quem entende mais do que consegue falar.
                 </span>
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-stone-900 mb-6">
                     Você entende o idioma.<br>
                     <span class="text-stone-400">Mas trava quando precisa usar.</span>
                 </h1>
                 <p class="font-serif text-base md:text-lg text-stone-550 leading-relaxed mb-8">
-                    Compreender frases em aplicativos, vídeos ou leituras não significa que sua memória consiga recuperar essas estruturas durante a fala real. O problema não é inteligência, talento ou falta de dedicação. É organização do estudo.
+                    Seu aplicativo diz que você já "completou o curso". Você consegue assistir a vídeos e ler textos. Mas na hora de formar uma frase de improviso, a estrutura desaparece. O problema não é falta de dedicação. É a forma como o seu estudo está sendo conduzido.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 mb-8">
@@ -102,7 +115,7 @@
                 <div class="pt-4 border-t border-stone-200">
                     <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-1">Fundamentos da Obra</span>
                     <p class="text-xs font-serif text-stone-550 italic">
-                        Baseado em princípios de carga cognitiva, recuperação ativa e percepção estrutural da linguagem.
+                        Um manual prático de 143 páginas fundamentado em pesquisas sobre memória e recuperação ativa aplicadas ao aprendizado autodidata.
                     </p>
                 </div>
             </div>
@@ -126,8 +139,8 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-24">
                 <div class="lg:col-span-5">
-                    <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Simulação de Uso</span>
-                    <h2 class="text-3xl font-semibold text-stone-900 tracking-tight">Talvez isto pareça familiar.</h2>
+                    <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Você já passou por isso?</span>
+                    <h2 class="text-3xl font-semibold text-stone-900 tracking-tight">Muitos estudantes descobrem que entender um idioma e conseguir usá-lo são habilidades diferentes.</h2>
                 </div>
                 <div class="lg:col-span-7">
                     <p class="font-serif text-lg text-stone-550 leading-relaxed">
@@ -147,7 +160,7 @@
                     </div>
                     <div class="text-sm font-semibold text-stone-900 pt-4 border-t border-stone-100 flex items-center gap-2">
                         <i data-lucide="check-circle" class="w-4 h-4 text-stone-800"></i>
-                        Você entende imediatamente.
+                        Você <span class="marker-highlight">entende imediatamente</span>.
                     </div>
                 </div>
 
@@ -161,7 +174,7 @@
                     </div>
                     <div class="pt-4 border-t border-stone-200">
                         <span class="text-xs uppercase tracking-widest font-bold text-ink-blue bg-ink-yellow px-1.5 py-0.5 block w-max mb-2">Silêncio.</span>
-                        <p class="text-xs font-serif text-stone-500 mb-4">Você sabe que já viu aquilo antes. Mas a estrutura não aparece.</p>
+                        <p class="text-xs font-serif text-stone-500 mb-4">Você sabe que conhece aquelas palavras. Mas elas simplesmente não aparecem.</p>
                         <div class="h-9 border border-stone-300 bg-white flex items-center px-3 text-xs font-mono text-stone-400">
                             <span class="blinking-cursor text-stone-800 font-sans font-medium">I... eh... </span>
                         </div>
@@ -174,44 +187,38 @@
     <section class="py-24 px-6 bg-stone-50 border-b border-stone-200">
         <div class="max-w-7xl mx-auto">
             <div class="max-w-3xl mb-16">
-                <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Engenharia Organizacional</span>
-                <h2 class="text-2xl md:text-3xl font-semibold text-stone-900">A mecânica prática desenvolvida no livro.</h2>
+                <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">O que realmente acontece</span>
+                <h2 class="text-2xl md:text-3xl font-semibold text-stone-900">O mecanismo por trás da diferença entre entender e falar.</h2>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 <div class="lg:col-span-6 space-y-6 font-serif text-base text-stone-550 leading-relaxed">
-                    <p class="font-sans text-sm font-bold text-stone-900 uppercase tracking-wider">O que a obra executa:</p>
-                    <p>O livro apresenta uma arquitetura prática para reduzir atrito cognitivo e melhorar recuperação ativa da linguagem.</p>
-                    
-                    <div class="p-5 border-l-2 border-stone-900 bg-white font-sans text-xs font-semibold text-stone-800 space-y-2">
-                        <p class="uppercase tracking-wider text-[10px] text-stone-400">Pilares Operacionais Dedicados</p>
-                        <p>• percepção ativa da estrutura / segmentação em blocos menores</p>
-                        <p>• recuperação ativa / repetição espaçada manual</p>
-                        <p>• redução de carga extrínseca / organização sustentável</p>
-                    </div>
+                    <p class="font-sans text-sm font-bold text-stone-900 uppercase tracking-wider">O diagnóstico do travamento:</p>
+                    <p>Entender uma estrutura e conseguir recuperá-la na hora de falar são habilidades <span class="marker-highlight">inteiramente diferentes</span>.</p>
+                    <p>A maioria dos métodos tradicionais e aplicativos de massa treina predominantemente o seu <span class="marker-highlight">reconhecimento</span>. O livro apresenta a arquitetura prática necessária para que você desenvolva a sua <span class="marker-highlight">recuperação ativa</span>, transformando conhecimento latente em uso espontâneo.</p>
 
-                    <p class="text-sm font-sans font-bold text-stone-900 italic">
-                        O objetivo não é aumentar infinitamente o tempo de estudo. O objetivo é tornar o esforço mais utilizável.
+                    <p class="text-sm font-sans font-bold text-stone-900 italic pt-4">
+                        O objetivo não é estudar mais horas. É fazer com que o que você já estuda produza resultados melhores.
                     </p>
                 </div>
 
                 <div class="lg:col-span-6 bg-white border border-stone-300 p-8 shadow-paper">
-                    <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-6">Fluxo Espacial do Estudo</span>
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-6">O Caminho para a Fala Espontânea</span>
                     <div class="flex flex-col gap-3 font-sans text-xs font-medium">
                         <div class="p-3 bg-stone-50 border border-stone-200 flex justify-between items-center">
-                            <span>Contato com o idioma</span>
+                            <span>Exposição</span>
                             <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-300"></i>
                         </div>
                         <div class="p-3 bg-stone-50 border border-stone-200 flex justify-between items-center bg-stone-100">
-                            <span>Organização em blocos utilizáveis</span>
+                            <span>Compreensão</span>
                             <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-400"></i>
                         </div>
                         <div class="p-3 bg-white border border-stone-300 flex justify-between items-center border-l-4 border-l-stone-900">
-                            <span class="font-bold">Recuperação ativa</span>
+                            <span class="font-bold">Recuperação Ativa</span>
                             <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-stone-900"></i>
                         </div>
                         <div class="p-3 bg-stone-900 text-white flex justify-between items-center shadow-product">
-                            <span class="font-bold uppercase tracking-wider text-[10px]">Uso espontâneo</span>
+                            <span class="font-bold uppercase tracking-wider text-[10px]">Uso Real</span>
                             <i data-lucide="check-circle-2" class="w-4 h-4 text-white"></i>
                         </div>
                     </div>
@@ -223,9 +230,9 @@
     <section class="py-24 px-6 bg-stone-100 border-b border-stone-200 text-center">
         <div class="max-w-3xl mx-auto">
             <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-3">Experiência Imersiva</span>
-            <h2 class="text-3xl md:text-4xl font-semibold text-stone-900 mb-6 tracking-tight">Leia uma Amostra</h2>
+            <h2 class="text-3xl md:text-4xl font-semibold text-stone-900 mb-6 tracking-tight">Comece pela amostra gratuita</h2>
             <p class="font-serif text-lg text-stone-550 mb-10 leading-relaxed">
-                Antes de conhecer as opções de acesso, comece a ler a obra agora mesmo.
+                Leia os primeiros capítulos e avalie a proposta antes de tomar qualquer decisão.
             </p>
             <button onclick="revelarAmostra()" class="inline-flex items-center justify-center gap-3 bg-stone-900 text-stone-50 px-10 py-4 text-sm font-bold uppercase tracking-wider hover:bg-stone-800 transition-colors shadow-product">
                 Ler Amostra
@@ -250,7 +257,7 @@
                     
                     <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-8">1. Fenômeno Humano Inicial</h3>
                     <p>Imagine a seguinte cena: você decide aprender um novo idioma. Entusiasmado, baixa o aplicativo de idiomas mais popular do mercado, com suas notificações amigáveis e interface colorida. Você passa trinta minutos por dia completando frases, arrastando palavras para os seus devidos lugares e ganhando pontos de experiência em um ranking virtual. Após algumas semanas de consistência inabalável, o aplicativo exibe orgulhosamente uma insígnia: "Você completou 45% do curso!".</p>
-                    <p>Sentindo-se confiante, você decide testar seus novos conhecimentos. Abre um vídeo de um falante nativo na internet ou coloca um episódio de uma série de TV sem legendas em português. Em vez de compreender o diálogo, tudo o que você ouve é uma massa confusa de sons rápidos. Ou pior: você tenta escrever um e-mail de trabalho simples ou responder a uma pergunta espontânea feita por um estrangeiro na rua. Você hesita, gagueja e percebe que as palavras que pareciam tão fáceis na tela do aplicativo simplesmente não aparecem.</p>
+                    <p>Sentindo-se confiante, você decide testar seus novos conhecimentos. Abre um vídeo de um falante nativo na internet ou coloca um episódio de uma série de TV sem legendas em português. Em vez de compreender o diálogo, tudo o que você ouve é uma massa confusa of sons rápidos. Ou pior: você tenta escrever um e-mail de trabalho simples ou responder a uma pergunta espontânea feita por um estrangeiro na rua. Você hesita, gagueja e percebe que as palavras que pareciam tão fáceis na tela do aplicativo simplesmente não aparecem.</p>
                     <p>Uma frustração silenciosa se instala. Você passa a acreditar que o problema é sua memória, sua idade ou a falta de um "talento natural" para línguas. A reação imediata costuma ser duplicar a aposta: comprar um curso mais caro, assinar outro aplicativo ou tentar consumir horas seguidas de filmes em áudio original. No entanto, o padrão de paralisia se repete.</p>
                     <p>O que ocorre nesse momento não é uma falha de inteligência, falta de empenho ou um defeito inerente à plataforma escolhida. É o resultado previsível de uma postura atencional que treinou a sua mente para uma tarefa cognitiva inteiramente diferente daquela exigida para produzir o idioma de forma ativa. O erro não está no software ou no hardware do seu método, mas na ausência de um sistema operacional de governança que saiba extrair o esforço útil da ferramenta.</p>
 
@@ -302,7 +309,7 @@
                     <p>Este fenômeno é conhecido como familiaridade. Ele gera uma falsa sensação de fluidez. Como o processamento visual da informação na tela flui sem atrito, o sistema cognitivo presume que a informação foi consolidada.</p>
 
                     <h4 class="font-sans font-bold text-stone-900 text-xl mt-8 mb-4">A Ilusão de Competência</h4>
-                    <p>A ilusão de competência ocorre quando confundimos a capacidade de compreender um conteúdo estruturado (com o amparo de pistas contextuais) com a capacidade de produzir esse mesmo conteúdo de forma autônoma. Ao limitar seu estudo a responder estímulos visuais e receber recompensas interativas imediatas, você está apenas acompanhando o raciocínio de terceiros.</p>
+                    <p>A ilusão de competência ocorre quando confundimos a capacidade de compreender um conteúdo estruturado (com o amparo de pistas contextuais) com a capacidade de produzir esse mesmo conteúdo de forma autônoma. Ao limitar seu estudo a responder stimuli visuais e receber recompensas interativas imediatas, você está apenas acompanhando o raciocínio de terceiros.</p>
                     <p>As associações necessárias para acessar o vocabulário de forma ativa não estão sendo fortalecidas. É por isso que você é capaz de entender grande parte de um filme, mas trava ao tentar pedir uma refeição simples em um restaurante sem o amparo de um roteiro.</p>
                     <p>Compreender este viés não significa que você deve demonizar ou descartar os aplicativos populares de mercado. Significa entender que eles operam predominantemente na camada do reconhecimento visual. Em sentido lato, todo método funciona se você souber hackear sua própria postura operacional para extrair fricção ativa dele.</p>
                 </article>
@@ -349,7 +356,7 @@
                     <p>Os desvios revelados não são falhas do seu talento ou do seu aplicativo, mas sim o mapa exato de onde a sua atenção consciente precisa atuar.</p>
 
                     <h3 class="text-sm font-sans font-bold text-stone-400 uppercase tracking-widest mb-6 mt-12">5. Limitações e Critérios</h3>
-                    <p>Embora o reconhecimento da ilusão de competência seja um passo crucial, ele é apenas uma ferramenta de diagnóstico e ajuste de postura.</p>
+                    <p>Embora o recognition da ilusão de competência seja um passo crucial, ele é apenas uma ferramenta de diagnóstico e ajuste de postura.</p>
                     
                     <ul class="list-disc list-inside space-y-3 mb-6">
                         <li><strong>O limite do estoque de dados:</strong> Mudar sua postura de passiva para ativa impede o desperdício de tempo, mas não cria conhecimento do nada. Você não pode recuperar ativamente um vocabulário que nunca processou adequadamente.</li>
@@ -397,8 +404,8 @@
         <section class="py-24 px-6 bg-white border-b border-stone-200">
             <div class="max-w-7xl mx-auto">
                 <div class="border-b border-stone-200 pb-4 mb-12">
-                    <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-1">Mapeamento de Artefatos</span>
-                    <h2 class="text-2xl font-semibold text-stone-900">Componentes Inclusos no Sistema</h2>
+                    <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-1">O que está incluído</span>
+                    <h2 class="text-2xl font-semibold text-stone-900">Conteúdo disponível em cada versão</h2>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -406,15 +413,15 @@
                         <div>
                             <div class="flex justify-between items-start border-b border-stone-200 pb-4 mb-6">
                                 <div>
-                                    <h3 class="text-lg font-bold text-stone-900">Módulo Essencial</h3>
-                                    <p class="text-xs text-stone-400 uppercase tracking-wider font-medium mt-1">Fundação de estudos</p>
+                                    <h3 class="text-lg font-bold text-stone-900">Versão Essencial</h3>
+                                    <p class="text-xs text-stone-400 uppercase tracking-wider font-medium mt-1">Tudo o que você precisa para aplicar o método</p>
                                 </div>
                             </div>
                             <ul class="space-y-4 text-sm text-stone-550 font-serif mb-8">
-                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>E-book completo:</strong> Guia de governança autodidata e estruturação da atenção.</span></li>
-                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Fichas operacionais:</strong> Material focado em auditoria semanal.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Livro completo (143 páginas):</strong> Princípios e aplicações práticas do método baseados em ciência cognitiva.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Fichas operacionais:</strong> Guias focados em auditoria semanal.</span></li>
                                 <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Infográficos visuais:</strong> Diagramas esquemáticos para fixação de conceitos.</span></li>
-                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Log diário:</strong> Ferramenta para documentar autoexperimentação.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Log diário:</strong> Ferramenta para documentar seu progresso.</span></li>
                                 <li class="flex items-start gap-3"><i data-lucide="check" class="w-4 h-4 text-stone-900 font-bold shrink-0 mt-1"></i> <span><strong>Prompt mestre:</strong> Guia de comandos essenciais para estudos.</span></li>
                             </ul>
                         </div>
@@ -425,15 +432,15 @@
                         <div>
                             <div class="flex justify-between items-start border-b border-stone-700 pb-4 mb-6">
                                 <div>
-                                    <h3 class="text-lg font-bold text-white">Suíte Premium</h3>
-                                    <p class="text-xs text-stone-500 uppercase tracking-wider font-medium mt-1">Ambientes digitais e imersão</p>
+                                    <h3 class="text-lg font-bold text-white">Versão Premium</h3>
+                                    <p class="text-xs text-stone-500 uppercase tracking-wider font-medium mt-1">Recursos complementares para aprofundamento</p>
                                 </div>
                             </div>
                             <ul class="space-y-4 text-sm text-stone-300 font-serif mb-8">
-                                <li class="flex items-start gap-3 border-b border-stone-800 pb-3"><i data-lucide="layers" class="w-4 h-4 text-white shrink-0 mt-1"></i> <span>Tudo do Módulo Essencial, mais:</span></li>
+                                <li class="flex items-start gap-3 border-b border-stone-800 pb-3"><i data-lucide="layers" class="w-4 h-4 text-white shrink-0 mt-1"></i> <span>Tudo da Versão Essencial, mais:</span></li>
                                 <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Resumos em áudio:</strong> Recapitulação auditiva capítulo a capítulo.</span></li>
                                 <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Laboratório de prompts:</strong> Engenharia avançada com IA para idiomas.</span></li>
-                                <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Apresentações visuais:</strong> Slides completos de cada capítulo do livro.</span></li>
+                                <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Apresentações visuais:</strong> Slides completos de cada um dos capítulos do livro.</span></li>
                                 <li class="flex items-start gap-3"><i data-lucide="plus" class="w-4 h-4 text-ink-yellow shrink-0 mt-1"></i> <span><strong>Templates interativos:</strong> Sistemas prontos para uso no Notion e Obsidian.</span></li>
                             </ul>
                         </div>
@@ -453,8 +460,7 @@
                     </span>
                     <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">Jônatas de Aquino Rocha</h2>
                     <div class="space-y-4 text-sm md:text-base text-stone-300 font-serif leading-relaxed">
-                        <p>Estudante autodidata e analista focado no desenvolvimento de rotinas estratégicas e protocolos operacionais aplicados ao aprendizado de idiomas.</p>
-                        <p>É o criador deste ecossistema modular de estudos, cujo objetivo é substituir abordagens comerciais genéricas por uma engenharia de precisão baseada em dados de desempenho individuais, devolvendo ao estudante a soberania autodidata.</p>
+                        <p>Após anos estudando idiomas de forma autodidata, reuniu princípios da ciência cognitiva e da aprendizagem para criar um sistema mais eficiente de estudo independente.</p>
                     </div>
                 </div>
             </div>
@@ -466,8 +472,8 @@
                     
                     <div class="text-center mb-10 border-b border-stone-200 pb-6 flex flex-col md:flex-row justify-between items-center gap-4">
                         <div class="text-left">
-                            <h2 class="text-2xl font-semibold text-stone-900">Acesso ao Sistema de Estudos</h2>
-                            <p class="text-xs font-serif text-stone-400 italic mt-1">Escolha o nível de sustentação para sua rotina</p>
+                            <h2 class="text-2xl font-semibold text-stone-900">Escolha sua versão</h2>
+                            <p class="text-xs font-serif text-stone-400 italic mt-1">Selecione o formato que melhor atende aos seus objetivos.</p>
                         </div>
                     </div>
 
@@ -475,8 +481,8 @@
                         <div class="p-8 bg-stone-50 border border-stone-200 shadow-sm flex flex-col justify-between">
                             <div>
                                 <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">Fundamentos</span>
-                                <h3 class="text-xl font-bold text-stone-900 uppercase tracking-wide mb-1">Módulo Essencial</h3>
-                                <p class="text-xs text-stone-500 font-serif mb-6">O manual completo, fichas de auditoria, infográficos, logs e o prompt mestre.</p>
+                                <h3 class="text-xl font-bold text-stone-900 uppercase tracking-wide mb-1">Versão Essencial</h3>
+                                <p class="text-xs text-stone-500 font-serif mb-6">O manual completo com 143 páginas de orientação, fichas de auditoria, infográficos, logs e o prompt mestre.</p>
                             </div>
                             <div class="border-t border-stone-200 pt-6 mt-auto">
                                 <div class="mb-4">
@@ -495,7 +501,7 @@
                             </div>
                             <div>
                                 <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">Imersão Total</span>
-                                <h3 class="text-xl font-bold text-white uppercase tracking-wide mb-1">Suíte Premium</h3>
+                                <h3 class="text-xl font-bold text-white uppercase tracking-wide mb-1">Versão Premium</h3>
                                 <p class="text-xs text-stone-300 font-serif mb-6">Tudo do essencial, além de áudios práticos, laboratório de prompts, slides em apresentação e templates.</p>
                             </div>
                             <div class="border-t border-stone-700 pt-6 mt-auto">
@@ -512,7 +518,82 @@
                 </div>
             </div>
         </section>
+
+        <section class="py-24 px-6 bg-stone-50 border-b border-stone-200">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 border-b border-stone-200 pb-6">
+                    <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Dúvidas Frequentes</span>
+                    <h2 class="text-3xl font-semibold text-stone-900 tracking-tight">Perguntas sobre a Arquitetura de Estudos</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none">
+                        <summary class="flex items-center justify-between cursor-pointer font-sans font-semibold text-sm md:text-base text-stone-900 select-none">
+                            <span class="flex items-center gap-3">
+                                <i data-lucide="help-circle" class="w-4 h-4 text-stone-400"></i>
+                                O método funciona para o aprendizado de qualquer idioma?
+                            </span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <div class="mt-4 pt-4 border-t border-stone-100 font-serif text-sm md:text-base text-stone-550 leading-relaxed space-y-2">
+                            <p>Sim. O sistema não é um curso de gramática de uma língua específica, mas sim um manual de gerenciamento da atenção e da memória. Ele se baseia nas leis universais da ciência cognitiva e do processamento de informações do cérebro humano. Portanto, as técnicas se aplicam perfeitamente para inglês, francês, espanhol, japonês ou qualquer outro idioma que você esteja estudando.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none">
+                        <summary class="flex items-center justify-between cursor-pointer font-sans font-semibold text-sm md:text-base text-stone-900 select-none">
+                            <span class="flex items-center gap-3">
+                                <i data-lucide="help-circle" class="w-4 h-4 text-stone-400"></i>
+                                Eu já utilizo aplicativos de idiomas. O livro substitui essas ferramentas?
+                            </span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <div class="mt-4 pt-4 border-t border-stone-100 font-serif text-sm md:text-base text-stone-550 leading-relaxed space-y-2">
+                            <p>Não, eles se complementam. O livro ensina você a assumir a governança sobre o seu estudo, mostrando como "hackear" e extrair fricção ativa das ferramentas de massa do mercado. Você aprenderá a coletar as frases das lições diárias de seus aplicativos e transformá-las em chunks atômicos de recuperação ativa, quebrando o ciclo de apenas adivinhar opções na tela.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none">
+                        <summary class="flex items-center justify-between cursor-pointer font-sans font-semibold text-sm md:text-base text-stone-900 select-none">
+                            <span class="flex items-center gap-3">
+                                <i data-lucide="help-circle" class="w-4 h-4 text-stone-400"></i>
+                                Quanto tempo por dia preciso dedicar para ter resultados reais?
+                            </span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <div class="mt-4 pt-4 border-t border-stone-100 font-serif text-sm md:text-base text-stone-550 leading-relaxed space-y-2">
+                            <p>O foco total do sistema é a sustentabilidade e o gerenciamento de carga mental. O protocolo recomenda a divisão do estudo em blocos curtos e focados de apenas 15 minutos diários. O objetivo central não é forçar você a aumentar exponencialmente o volume de horas sentando-se à mesa, mas garantir que o tempo que você já dedica produza retenção definitiva e agilidade na fala.</p>
+                        </div>
+                    </details>
+
+                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none">
+                        <summary class="flex items-center justify-between cursor-pointer font-sans font-semibold text-sm md:text-base text-stone-900 select-none">
+                            <span class="flex items-center gap-3">
+                                <i data-lucide="help-circle" class="w-4 h-4 text-stone-400"></i>
+                                Como funciona a entrega e o acesso aos materiais?
+                            </span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 transition-transform duration-300 group-open:rotate-180"></i>
+                        </summary>
+                        <div class="mt-4 pt-4 border-t border-stone-100 font-serif text-sm md:text-base text-stone-550 leading-relaxed space-y-2">
+                            <p>O pagamento é único e o processamento é feito de forma segura. Assim que a transação for confirmada, você receberá um link imediato em seu e-mail para acessar o painel de download. A Versão Essencial inclui o livro digital completo e as fichas de auditoria. Caso opte pela Versão Premium, os resumos em áudio, apresentações visuais e os templates prontos para o Notion e Obsidian estarão liberados no mesmo ambiente.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <footer class="py-12 px-6 bg-stone-900 border-t border-stone-800 text-center">
+        <div class="max-w-4xl mx-auto flex flex-col items-center gap-4">
+            <a href="mailto:jonatas.rocha@outlook.es" class="inline-flex items-center gap-2 text-sm font-medium text-stone-400 hover:text-ink-yellow transition-colors">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                jonatas.rocha@outlook.es
+            </a>
+            <p class="text-xs text-stone-500 font-serif">
+                &copy; 2026 Jônatas de Aquino Rocha. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
 
     <script>
         lucide.createIcons();
@@ -538,6 +619,23 @@
         document.getElementById('link-compra-topo').addEventListener('click', function(e) {
             e.preventDefault();
             revelarOferta();
+        });
+
+        // Observador para ativar o efeito de marca-texto ao rolar a página
+        const highlightObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    highlightObserver.unobserve(entry.target); // Executa a animação apenas uma vez
+                }
+            });
+        }, { 
+            threshold: 0.7, // Ativa quando 70% do trecho estiver visível na tela
+            rootMargin: '0px 0px -50px 0px' 
+        });
+
+        document.querySelectorAll('.marker-highlight').forEach(element => {
+            highlightObserver.observe(element);
         });
     </script>
 </body>
