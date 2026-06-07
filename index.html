@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/lucide@latest"></script>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -64,7 +63,6 @@
         }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        /* Efeito de marca-texto animado ao rolar a página */
         .marker-highlight {
             background-image: linear-gradient(to right, rgba(254, 240, 138, 0.9) 50%, transparent 50%);
             background-position: 100% 0;
@@ -149,7 +147,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
                 <div class="p-8 border border-stone-200 bg-white shadow-paper flex flex-col justify-between">
                     <div>
                         <span class="text-[10px] font-bold text-stone-400 uppercase tracking-wider block mb-4">Cenário 1 — Reconhecimento Passivo</span>
@@ -181,6 +179,80 @@
                     </div>
                 </div>
             </div>
+
+            <div class="max-w-5xl mx-auto pt-16 border-t border-stone-200">
+                <div class="text-center mb-10">
+                    <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 block mb-2">Autodiagnóstico de Aprendizado</span>
+                    <h3 class="text-2xl font-semibold text-stone-900 tracking-tight">Qual é o seu perfil de travamento?</h3>
+                    <p class="text-xs font-serif text-stone-400 italic mt-1">Nem todo estudante trava da mesma forma. Toque para identificar seu gargalo de atenção.</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 p-1 bg-stone-100 rounded-lg max-w-md mx-auto mb-8">
+                    <button onclick="alternarPerfil('analitico')" id="btn-perfil-analitico" class="py-2.5 px-4 text-xs font-bold uppercase tracking-wider rounded-md transition-all duration-300 bg-stone-900 text-stone-50 shadow-sm">
+                        Analítico-Rígido
+                    </button>
+                    <button onclick="alternarPerfil('comunicativo')" id="btn-perfil-comunicativo" class="py-2.5 px-4 text-xs font-bold uppercase tracking-wider rounded-md transition-all duration-300 text-stone-550 hover:text-stone-900">
+                        Comunicativo-Impulsivo
+                    </button>
+                </div>
+
+                <!-- Conteúdo do Perfil: Analítico -->
+                <div id="perfil-analitico" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch transition-all duration-300">
+                    <div class="lg:col-span-5 p-8 bg-stone-50 border border-stone-200 rounded-lg flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-red-700 bg-red-50 border border-red-200 px-2 py-0.5 rounded uppercase tracking-wider block w-max mb-4">Sintomas Comuns</span>
+                            <h4 class="text-lg font-bold text-stone-900 mb-2">"Tenho pavor de falar errado"</h4>
+                            <p class="text-sm font-serif text-stone-550 leading-relaxed">Você escreve muito bem e entende a gramática perfeitamente no silêncio do estudo. Mas, quando precisa falar, hesita de forma prolongada porque sua mente consome toda a memória de trabalho revisando regras antes de pronunciar cada termo.</p>
+                        </div>
+                        <div class="pt-6 border-t border-stone-200 mt-6 flex items-center gap-3 text-xs font-medium text-stone-550">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-stone-400 shrink-0"></i>
+                            <span>Gargalo: <strong>Alta latência de evocação na memória ativa.</strong></span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 p-8 bg-stone-900 text-stone-100 rounded-lg flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-ink-yellow bg-stone-800 px-2 py-0.5 rounded uppercase tracking-wider block w-max mb-4">Como a Arquitetura resolve</span>
+                            <h4 class="text-lg font-bold text-white mb-4">Desbloqueio Temporal e Chunks Estruturados</h4>
+                            <p class="text-sm font-serif text-stone-300 leading-relaxed mb-4">O livro ensina você a forçar uma "limpeza da memória de trabalho" reduzindo a pressão do monitoramento consciente. Através de práticas do <strong>Capítulo 10</strong>, você aprenderá a:</p>
+                            <ul class="space-y-2 text-xs font-serif text-stone-300 pl-4 list-disc">
+                                <li>Aplicar <strong>pressão temporal estrita (limite de 30s)</strong> nas gravações diárias.</li>
+                                <li>Evocar blocos inteiros (chunks de alta fixação) sem tentar traduzir palavras individualmente.</li>
+                                <li>Desligar o filtro de correção formal durante diálogos espontâneos.</li>
+                            </ul>
+                        </div>
+                        <p class="text-xs font-sans font-bold text-ink-yellow italic pt-4 border-t border-stone-800">Direcionamento do livro: Reduzir a latência de acesso antes de polir a gramática.</p>
+                    </div>
+                </div>
+
+                <!-- Conteúdo do Perfil: Comunicativo -->
+                <div id="perfil-comunicativo" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch hidden transition-all duration-300">
+                    <div class="lg:col-span-5 p-8 bg-stone-50 border border-stone-200 rounded-lg flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-red-700 bg-red-50 border border-red-200 px-2 py-0.5 rounded uppercase tracking-wider block w-max mb-4">Sintomas Comuns</span>
+                            <h4 class="text-lg font-bold text-stone-900 mb-2">"Falo rápido, mas cometo erros crônicos"</h4>
+                            <p class="text-sm font-serif text-stone-550 leading-relaxed">Você se faz entender facilmente, não tem medo de interagir e fala sem hesitações. O problema é que sua fala é uma colagem literal das estruturas gramaticais do português com vocábulos estrangeiros, carregando desvios repetitivos de preposições e concordâncias.</p>
+                        </div>
+                        <div class="pt-6 border-t border-stone-200 mt-6 flex items-center gap-3 text-xs font-medium text-stone-550">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-stone-400 shrink-0"></i>
+                            <span>Gargalo: <strong>Fossilização de desvios por falta de noticing.</strong></span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 p-8 bg-stone-900 text-stone-100 rounded-lg flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-ink-yellow bg-stone-800 px-2 py-0.5 rounded uppercase tracking-wider block w-max mb-4">Como a Arquitetura resolve</span>
+                            <h4 class="text-lg font-bold text-white mb-4">Noticing Ativo e Controle de L1 Leakage</h4>
+                            <p class="text-sm font-serif text-stone-300 leading-relaxed mb-4">Para reverter o vício da tradução direta e polir a precisão, os protocolos práticos do <strong>Capítulo 2 e 10</strong> guiam você para:</p>
+                            <ul class="space-y-2 text-xs font-serif text-stone-300 pl-4 list-disc">
+                                <li>Aplicar o <strong>Buffer de Escrita Prévia</strong> antes de qualquer microcenário de áudio.</li>
+                                <li>Configurar auditorias automatizadas focadas em identificar interferência da língua nativa.</li>
+                                <li>Construir cartões de contraste no sistema de envelopes com tolerância zero a preposições ausentes.</li>
+                            </ul>
+                        </div>
+                        <p class="text-xs font-sans font-bold text-ink-yellow italic pt-4 border-t border-stone-800">Direcionamento do livro: Reduzir a velocidade do fluxo para filtrar e corrigir os erros fossilizados.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -222,6 +294,32 @@
                             <i data-lucide="check-circle-2" class="w-4 h-4 text-white"></i>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-white border-b border-stone-200">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Carta do Autor</span>
+                <h2 class="text-3xl font-semibold text-stone-900 tracking-tight">Do Empirismo Ingênuo à Engenharia do Aprendizado</h2>
+            </div>
+
+            <div class="p-8 md:p-12 bg-stone-50 border border-stone-200 shadow-paper relative rounded-lg">
+                <div class="absolute -top-4 -left-4 w-12 h-12 bg-stone-200 flex items-center justify-center rounded-full text-stone-400 font-serif text-2xl font-bold">“</div>
+                <div class="font-serif text-base md:text-lg text-stone-550 leading-relaxed space-y-6">
+                    <p>Em 2020, publiquei uma obra intitulada <em>“O Pulo do Gato: A fórmula mágica para aprender qualquer idioma”</em>. Naquele momento, movido pelo entusiasmo de um aprendizado autodidata que havia funcionado para mim, busquei simplificar a aquisição de línguas em uma abordagem prática e acessível.</p>
+                    <p>Havia ali uma verdade valiosa: o reconhecimento de que a constância e a autonomia são indispensáveis. Contudo, percebi, com o tempo, que aquela estrutura baseava-se fortemente em intuições e generalizações empíricas. Ao sugerir caminhos tão simplificados, eu corria o risco de negligenciar a complexidade dos processos mentais e alimentar, ainda que sem querer, a <span class="marker-highlight">ilusão de competência</span> no leitor.</p>
+                    <p>Este livro não nasce para apagar o passado, mas para amadurecê-lo. A mecânica por trás da fluência não depende de fórmulas mágicas ou de picos episódicos de motivação. A aquisição de um segundo idioma é um processo governado pelas leis do processamento humano de informações e pelos limites físicos da nossa biologia.</p>
+                    <p>O papel deste manual é funcionar como o seu sistema operacional de estudos. Desnudamos as engrenagens brutas e os gargalos do aprendizado para que você compreenda como o seu cérebro digere o código de uma língua.</p>
+                </div>
+                <div class="pt-8 border-t border-stone-200 mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest font-bold text-stone-900 block">Jônatas de Aquino Rocha</span>
+                        <span class="text-[10px] text-stone-400 block font-serif italic">Jacareí, SP, 2026.</span>
+                    </div>
+                    <span class="text-xs font-mono text-stone-400 uppercase tracking-widest">PREFÁCIO EDITORIAL</span>
                 </div>
             </div>
         </div>
@@ -335,7 +433,7 @@
                             <i data-lucide="brain" class="w-5 h-5 text-stone-900 shrink-0 mt-1"></i>
                             <div>
                                 <strong class="text-stone-900">Atividades de Alto Esforço (Foco em Retenção):</strong>
-                                <p class="text-stone-600 mt-1 text-sm leading-relaxed">Escrever ou falar um resumo sobre o vídeo que acabou de assistir sem consultar o material; tentar traduzir uma frase de aplicativo antes de olhar as alternativas na tela; anotar lacunas de fala e corrigi-las depois.</p>
+                                <p class="text-stone-600 mt-1 text-sm leading-relaxed">Escrever ou falar um resumo sobre o vídeo que acabou de assistir sem consultar o material; tentar traduzir uma frase de aplicativo antes de olhar as alternatives na tela; anotar lacunas de fala e corrigi-las depois.</p>
                             </div>
                         </li>
                     </ul>
@@ -382,7 +480,7 @@
                     </div>
 
                     <div class="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 bg-white/20 backdrop-blur-[1px]">
-                        <div class="w-full max-w-lg p-10 bg-white border border-stone-200 text-center shadow-product font-sans">
+                        <div class="w-full max-w-lg p-10 bg-white border border-stone-200 text-center shadow-product font-sans rounded-lg">
                             <i data-lucide="lock" class="w-8 h-8 mx-auto text-stone-300 mb-4"></i>
                             <h3 class="text-2xl font-semibold text-stone-900 mb-3">Continuar a Leitura</h3>
                             <p class="text-stone-550 font-serif mb-8 text-base leading-relaxed">Você chegou ao final da amostra gratuita.<br>O <strong>Capítulo 2</strong> detalha a mecânica do Input e do Noticing.</p>
@@ -399,8 +497,165 @@
         </div>
     </section>
 
+    <!-- CONTAINER DA SEÇÃO COMERCIAL E CONTEÚDOS EXCLUSIVOS -->
     <div id="secao-comercial" class="hidden opacity-0 transition-opacity duration-1000 ease-in-out">
         
+        <section class="py-24 px-6 bg-stone-50 border-b border-stone-200">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Grade Curricular</span>
+                    <h2 class="text-3xl font-semibold text-stone-900 tracking-tight">O Sumário Oculto da Transformação</h2>
+                    <p class="text-sm font-serif text-stone-400 italic mt-1">Conheça exatamente a jornada de 13 capítulos fundamentados que o aguardam.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Módulo 1 -->
+                    <div class="bg-white border border-stone-200 p-6 rounded-lg flex flex-col justify-between shadow-paper">
+                        <div>
+                            <span class="text-[10px] font-bold text-stone-400 uppercase tracking-wider block mb-4">Módulo I — Filtro e Absorção</span>
+                            <h4 class="text-sm font-bold text-stone-900 mb-3">Noticing e Carga Cognitiva</h4>
+                            <ul class="space-y-3 text-xs font-serif text-stone-550">
+                                <li><strong>Cap. 1:</strong> A ilusão de competência e a arquitetura inicial.</li>
+                                <li><strong>Cap. 2:</strong> Input, processamento e o poder de notar os padrões (noticing).</li>
+                                <li><strong>Cap. 3:</strong> Como gerenciar e reduzir o atrito atencional diário.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Módulo 2 -->
+                    <div class="bg-white border border-stone-200 p-6 rounded-lg flex flex-col justify-between shadow-paper">
+                        <div>
+                            <span class="text-[10px] font-bold text-stone-400 uppercase tracking-wider block mb-4">Módulo II — Consolidação Estável</span>
+                            <h4 class="text-sm font-bold text-stone-900 mb-3">Memória Sináptica</h4>
+                            <ul class="space-y-3 text-xs font-serif text-stone-550">
+                                <li><strong>Cap. 4:</strong> Recuperação ativa (recall) e repetição espaçada sem muletas.</li>
+                                <li><strong>Cap. 5:</strong> Princípios para manter a sustentabilidade do sistema a longo prazo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Módulo 3 -->
+                    <div class="bg-white border border-stone-200 p-6 rounded-lg flex flex-col justify-between shadow-paper">
+                        <div>
+                            <span class="text-[10px] font-bold text-stone-400 uppercase tracking-wider block mb-4">Módulo III — Ativação Prática</span>
+                            <h4 class="text-sm font-bold text-stone-900 mb-3">Produção e Tecnologia</h4>
+                            <ul class="space-y-3 text-xs font-serif text-stone-550">
+                                <li><strong>Cap. 6:</strong> Produção ativa por microcenários guiados de fala.</li>
+                                <li><strong>Cap. 7:</strong> Integração de IA como auditora adaptativa de desvios.</li>
+                                <li><strong>Cap. 8:</strong> Calibração de hábitos atencionais e sono profundo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Módulo 4 -->
+                    <div class="bg-white border border-stone-200 p-6 rounded-lg flex flex-col justify-between shadow-paper">
+                        <div>
+                            <span class="text-[10px] font-bold text-stone-400 uppercase tracking-wider block mb-4">Módulo IV — Soberania</span>
+                            <h4 class="text-sm font-bold text-stone-900 mb-3">Autonomia do Sistema</h4>
+                            <ul class="space-y-3 text-xs font-serif text-stone-550">
+                                <li><strong>Cap. 9:</strong> Transferência de contexto sob pressão e simulação de ruído.</li>
+                                <li><strong>Cap. 10:</strong> Ajustes por perfil e combate à fossilização de erros.</li>
+                                <li><strong>Cap. 11 a 13:</strong> Quando o modelo falha, autoexperimentação N=1 e governança final.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-white border-b border-stone-200">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-xs uppercase tracking-widest font-bold text-stone-400 block mb-2">Aplicações Reais</span>
+                    <h2 class="text-3xl font-semibold text-stone-900 tracking-tight">O que você vai receber além do livro</h2>
+                    <p class="text-sm font-serif text-stone-400 italic mt-1">Ferramentas que convertem teoria cognitiva em execução prática diária.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-4 space-y-3">
+                        <button onclick="alternarBonus('auditoria')" id="btn-bonus-auditoria" class="w-full text-left p-5 border border-stone-300 bg-stone-50 rounded-lg transition-all duration-300">
+                            <h4 class="text-sm font-bold text-stone-900 flex items-center gap-2">
+                                <i data-lucide="file-text" class="w-4 h-4 text-stone-900"></i>
+                                Ficha de Auditoria Semanal
+                            </h4>
+                            <p class="text-xs text-stone-400 font-serif mt-1">O roteiro de 3 perguntas para mapear os gargalos aos domingos.</p>
+                        </button>
+
+                        <button onclick="alternarBonus('prompt')" id="btn-bonus-prompt" class="w-full text-left p-5 border border-stone-200 hover:bg-stone-50 rounded-lg transition-all duration-300">
+                            <h4 class="text-sm font-bold text-stone-900 flex items-center gap-2">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-stone-500"></i>
+                                Prompt de Co-Regulação
+                            </h4>
+                            <p class="text-xs text-stone-400 font-serif mt-1">Instrução de sistema para travar respostas prontas e exigir esforço.</p>
+                        </button>
+
+                        <button onclick="alternarBonus('backlog')" id="btn-bonus-backlog" class="w-full text-left p-5 border border-stone-200 hover:bg-stone-50 rounded-lg transition-all duration-300">
+                            <h4 class="text-sm font-bold text-stone-900 flex items-center gap-2">
+                                <i data-lucide="git-commit" class="w-4 h-4 text-stone-500"></i>
+                                Fluxo de Backlog
+                            </h4>
+                            <p class="text-xs text-stone-400 font-serif mt-1">Estratégia para limpar filas acumuladas sem cansaço mental.</p>
+                        </button>
+                    </div>
+
+                    <div class="lg:col-span-8">
+                        <!-- Amostra: Ficha de Auditoria -->
+                        <div id="display-bonus-auditoria" class="border border-stone-300 bg-stone-50 rounded-lg p-6 md:p-8 shadow-paper relative">
+                            <span class="absolute top-4 right-4 text-[9px] font-bold text-stone-400 uppercase tracking-widest font-mono">PROTOCOLO ANALÓGICO</span>
+                            <h4 class="text-base font-bold text-stone-900 border-b border-stone-200 pb-3 mb-4">A Ficha Semanal de Correção Operacional</h4>
+                            <div class="space-y-4 font-serif text-sm text-stone-550 leading-relaxed">
+                                <p class="italic text-xs text-stone-400">Execute todo domingo em menos de 10 minutos:</p>
+                                <div class="bg-white border border-stone-200 p-4 rounded-md space-y-3">
+                                    <p><strong>1. Qual foi a maior hesitação mecânica na fala durante a semana?</strong><br>
+                                    <span class="text-xs text-stone-400">Ex: Errei a preposição após o verbo "interested" na gravação do microcenário.</span></p>
+                                    <p><strong>2. Qual é o chunk atômico de correção necessária?</strong><br>
+                                    <span class="text-xs text-stone-400">Ex: Registrar "I am interested in buying..." no Envelope 1.</span></p>
+                                    <p><strong>3. Como vou isolar esse padrão nos próximos 7 dias?</strong><br>
+                                    <span class="text-xs text-stone-400">Ex: Reservar os 3 primeiros minutos do estudo diário para testar apenas essa estrutura.</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Amostra: Prompt de Co-Regulação -->
+                        <div id="display-bonus-prompt" class="border border-stone-300 bg-stone-900 rounded-lg p-6 md:p-8 shadow-product relative hidden">
+                            <span class="absolute top-4 right-4 text-[9px] font-bold text-ink-yellow uppercase tracking-widest font-mono">IA PROMPT PROTOCOL</span>
+                            <h4 class="text-base font-bold text-white border-b border-stone-800 pb-3 mb-4">Filtro Anticomodismo para Inteligência Artificial</h4>
+                            <div class="space-y-4 text-xs font-mono text-stone-300 leading-relaxed">
+                                <p class="text-[10px] text-stone-500 uppercase tracking-wider">// Cole este comando no ChatGPT para calibrar o feedback:</p>
+                                <div class="bg-stone-850 p-4 border border-stone-800 rounded-md text-stone-200">
+                                    "Aja como assistente de diagnóstico cognitivo. Eu inserirei uma tentativa de escrita no idioma que estudo. Não reescreva a frase pronta sob hipótese alguma. Apenas aponte a localização dos erros de preposição ou vocabulário e dê pistas conceituais em português para que eu descubra a correção. Force a minha autoavaliação antes de validar."
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Amostra: Fluxo de Backlog -->
+                        <div id="display-bonus-backlog" class="border border-stone-300 bg-stone-50 rounded-lg p-6 md:p-8 shadow-paper relative hidden">
+                            <span class="absolute top-4 right-4 text-[9px] font-bold text-stone-400 uppercase tracking-widest font-mono">DIRETRIZ DE SUSTENTABILIDADE</span>
+                            <h4 class="text-base font-bold text-stone-900 border-b border-stone-200 pb-3 mb-4">Algoritmo de Contingência de Acúmulos</h4>
+                            <div class="space-y-4 font-serif text-sm text-stone-550 leading-relaxed">
+                                <p class="italic text-xs text-stone-400">Se você acumulou centenas de revisões atrasadas nos envelopes:</p>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-center">
+                                    <div class="bg-white border border-stone-200 p-3 rounded-md">
+                                        <span class="font-bold text-stone-900 block mb-1">Passo 1</span>
+                                        Limite a revisão diária a no máximo 30 cartões atrasados.
+                                    </div>
+                                    <div class="bg-white border border-stone-200 p-3 rounded-md">
+                                        <span class="font-bold text-stone-900 block mb-1">Passo 2</span>
+                                        Coloque o excesso em um envelope de espera suspenso.
+                                    </div>
+                                    <div class="bg-white border border-stone-200 p-3 rounded-md">
+                                        <span class="font-bold text-stone-900 block mb-1">Passo 3</span>
+                                        Libere de 5 a 10 cartões apenas se a fila atual estiver limpa.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO: O QUE ESTÁ INCLUÍDO (PACOTES) -->
         <section class="py-24 px-6 bg-white border-b border-stone-200">
             <div class="max-w-7xl mx-auto">
                 <div class="border-b border-stone-200 pb-4 mb-12">
@@ -409,7 +664,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <div class="border border-stone-300 bg-stone-50 p-8 shadow-paper flex flex-col justify-between">
+                    <div class="border border-stone-300 bg-stone-50 p-8 shadow-paper flex flex-col justify-between rounded-lg">
                         <div>
                             <div class="flex justify-between items-start border-b border-stone-200 pb-4 mb-6">
                                 <div>
@@ -427,7 +682,7 @@
                         </div>
                     </div>
 
-                    <div class="border border-stone-800 bg-stone-900 text-stone-100 p-8 shadow-product flex flex-col justify-between relative overflow-hidden">
+                    <div class="border border-stone-800 bg-stone-900 text-stone-100 p-8 shadow-product flex flex-col justify-between relative overflow-hidden rounded-lg">
                         <div class="absolute top-0 right-0 bg-ink-yellow text-stone-900 text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">Recomendado</div>
                         <div>
                             <div class="flex justify-between items-start border-b border-stone-700 pb-4 mb-6">
@@ -468,7 +723,7 @@
 
         <section class="py-24 px-6 bg-stone-50">
             <div class="max-w-5xl mx-auto">
-                <div class="border border-stone-300 bg-white p-8 md:p-12 shadow-product">
+                <div class="border border-stone-300 bg-white p-8 md:p-12 shadow-product rounded-lg">
                     
                     <div class="text-center mb-10 border-b border-stone-200 pb-6 flex flex-col md:flex-row justify-between items-center gap-4">
                         <div class="text-left">
@@ -478,24 +733,24 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mb-10">
-                        <div class="p-8 bg-stone-50 border border-stone-200 shadow-sm flex flex-col justify-between">
+                        <div class="p-8 bg-stone-50 border border-stone-200 shadow-sm flex flex-col justify-between rounded-lg">
                             <div>
                                 <span class="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">Fundamentos</span>
                                 <h3 class="text-xl font-bold text-stone-900 uppercase tracking-wide mb-1">Versão Essencial</h3>
-                                <p class="text-xs text-stone-500 font-serif mb-6">O manual completo com 143 páginas de orientação, fichas de auditoria, infográficos, logs e o prompt mestre.</p>
+                                <p class="text-xs text-stone-550 font-serif mb-6">O manual completo com 143 páginas de orientação, fichas de auditoria, infográficos, logs e o prompt mestre.</p>
                             </div>
                             <div class="border-t border-stone-200 pt-6 mt-auto">
                                 <div class="mb-4">
                                     <span class="text-3xl font-bold text-stone-900">R$ 59,00</span>
                                     <span class="text-[10px] text-stone-500 block mt-1 uppercase tracking-widest font-bold">Pagamento único</span>
                                 </div>
-                                <a href="https://pay.hotmart.com/T106053637Y" class="block text-center w-full bg-stone-200 text-stone-900 text-xs uppercase tracking-widest font-bold py-4 hover:bg-stone-300 transition-colors" target="_blank" rel="noopener noreferrer">
+                                <a href="https://pay.hotmart.com/T106053637Y" class="block text-center w-full bg-stone-200 text-stone-900 text-xs uppercase tracking-widest font-bold py-4 hover:bg-stone-300 transition-colors rounded" target="_blank" rel="noopener noreferrer">
                                     Adquirir Essencial
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="p-8 bg-stone-900 border border-stone-800 shadow-xl text-white flex flex-col justify-between relative overflow-hidden">
+                        <div class="p-8 bg-stone-900 border border-stone-800 shadow-xl text-white flex flex-col justify-between relative overflow-hidden rounded-lg">
                             <div class="absolute top-0 right-0 bg-ink-yellow text-stone-900 text-[9px] uppercase tracking-widest font-bold py-1.5 px-3">
                                 Pacote Completo
                             </div>
@@ -509,7 +764,7 @@
                                     <span class="text-3xl font-bold text-ink-yellow">R$ 89,00</span>
                                     <span class="text-[10px] text-stone-400 block mt-1 uppercase tracking-widest font-bold">Pagamento único</span>
                                 </div>
-                                <a href="https://pay.hotmart.com/W106063643R" class="block text-center w-full bg-white text-stone-900 text-xs uppercase tracking-widest font-bold py-4 hover:bg-stone-200 transition-colors" target="_blank" rel="noopener noreferrer">
+                                <a href="https://pay.hotmart.com/W106063643R" class="block text-center w-full bg-white text-stone-900 text-xs uppercase tracking-widest font-bold py-4 hover:bg-stone-200 transition-colors rounded" target="_blank" rel="noopener noreferrer">
                                     Adquirir Premium
                                 </a>
                             </div>
@@ -527,7 +782,7 @@
                 </div>
 
                 <div class="space-y-4">
-                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none">
+                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none rounded-lg">
                         <summary class="flex items-center justify-between cursor-pointer font-sans font-semibold text-sm md:text-base text-stone-900 select-none">
                             <span class="flex items-center gap-3">
                                 <i data-lucide="help-circle" class="w-4 h-4 text-stone-400"></i>
@@ -540,7 +795,7 @@
                         </div>
                     </details>
 
-                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none">
+                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none rounded-lg">
                         <summary class="flex items-center justify-between cursor-pointer font-sans font-semibold text-sm md:text-base text-stone-900 select-none">
                             <span class="flex items-center gap-3">
                                 <i data-lucide="help-circle" class="w-4 h-4 text-stone-400"></i>
@@ -553,7 +808,7 @@
                         </div>
                     </details>
 
-                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none">
+                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none rounded-lg">
                         <summary class="flex items-center justify-between cursor-pointer font-sans font-semibold text-sm md:text-base text-stone-900 select-none">
                             <span class="flex items-center gap-3">
                                 <i data-lucide="help-circle" class="w-4 h-4 text-stone-400"></i>
@@ -566,7 +821,7 @@
                         </div>
                     </details>
 
-                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none">
+                    <details class="group border border-stone-300 bg-white p-6 shadow-paper transition-all duration-300 [&_summary::-webkit-details-marker]:hidden list-none rounded-lg">
                         <summary class="flex items-center justify-between cursor-pointer font-sans font-semibold text-sm md:text-base text-stone-900 select-none">
                             <span class="flex items-center gap-3">
                                 <i data-lucide="help-circle" class="w-4 h-4 text-stone-400"></i>
@@ -583,6 +838,7 @@
         </section>
     </div>
 
+    <!-- RODAPÉ DA PÁGINA -->
     <footer class="py-12 px-6 bg-stone-900 border-t border-stone-800 text-center">
         <div class="max-w-4xl mx-auto flex flex-col items-center gap-4">
             <a href="mailto:jonatas.rocha@outlook.es" class="inline-flex items-center gap-2 text-sm font-medium text-stone-400 hover:text-ink-yellow transition-colors">
@@ -596,8 +852,10 @@
     </footer>
 
     <script>
+        // Inicializa ícones do Lucide
         lucide.createIcons();
 
+        // Controla revelação da amostra grátis
         function revelarAmostra() {
             const amostraContainer = document.getElementById('amostra-container');
             amostraContainer.classList.remove('hidden');
@@ -606,6 +864,7 @@
             }, 50);
         }
 
+        // Revela seção de preços e recursos ocultos
         function revelarOferta() {
             const secaoComercial = document.getElementById('secao-comercial');
             secaoComercial.classList.remove('hidden');
@@ -616,10 +875,73 @@
             }, 50);
         }
 
+        // Scroll direto para oferta
         document.getElementById('link-compra-topo').addEventListener('click', function(e) {
             e.preventDefault();
             revelarOferta();
         });
+
+        // Alternador dinâmico de Perfis de Travamento (Analítico vs Comunicativo)
+        function alternarPerfil(perfil) {
+            const pAnalitico = document.getElementById('perfil-analitico');
+            const pComunicativo = document.getElementById('perfil-comunicativo');
+            const btnAnalitico = document.getElementById('btn-perfil-analitico');
+            const btnComunicativo = document.getElementById('btn-perfil-comunicativo');
+
+            if (perfil === 'analitico') {
+                pAnalitico.classList.remove('hidden');
+                pComunicativo.classList.add('hidden');
+                btnAnalitico.className = 'py-2.5 px-4 text-xs font-bold uppercase tracking-wider rounded-md transition-all duration-300 bg-stone-900 text-stone-50 shadow-sm';
+                btnComunicativo.className = 'py-2.5 px-4 text-xs font-bold uppercase tracking-wider rounded-md transition-all duration-300 text-stone-550 hover:text-stone-900';
+            } else {
+                pAnalitico.classList.add('hidden');
+                pComunicativo.classList.remove('hidden');
+                btnAnalitico.className = 'py-2.5 px-4 text-xs font-bold uppercase tracking-wider rounded-md transition-all duration-300 text-stone-550 hover:text-stone-900';
+                btnComunicativo.className = 'py-2.5 px-4 text-xs font-bold uppercase tracking-wider rounded-md transition-all duration-300 bg-stone-900 text-stone-50 shadow-sm';
+            }
+        }
+
+        // Alternador de Previews de Bônus
+        function alternarBonus(tipo) {
+            const bAuditoria = document.getElementById('display-bonus-auditoria');
+            const bPrompt = document.getElementById('display-bonus-prompt');
+            const bBacklog = document.getElementById('display-bonus-backlog');
+            
+            const btnAuditoria = document.getElementById('btn-bonus-auditoria');
+            const btnPrompt = document.getElementById('btn-bonus-prompt');
+            const btnBacklog = document.getElementById('btn-bonus-backlog');
+
+            // Reset de displays
+            bAuditoria.classList.add('hidden');
+            bPrompt.classList.add('hidden');
+            bBacklog.classList.add('hidden');
+
+            // Reset de estilos nos botões
+            btnAuditoria.className = 'w-full text-left p-5 border border-stone-200 hover:bg-stone-50 rounded-lg transition-all duration-300';
+            btnPrompt.className = 'w-full text-left p-5 border border-stone-200 hover:bg-stone-50 rounded-lg transition-all duration-300';
+            btnBacklog.className = 'w-full text-left p-5 border border-stone-200 hover:bg-stone-50 rounded-lg transition-all duration-300';
+
+            // Seleção ativa
+            if (tipo === 'auditoria') {
+                bAuditoria.classList.remove('hidden');
+                btnAuditoria.className = 'w-full text-left p-5 border border-stone-300 bg-stone-50 rounded-lg transition-all duration-300';
+                btnAuditoria.querySelector('i').className = 'w-4 h-4 text-stone-900';
+                btnPrompt.querySelector('i').className = 'w-4 h-4 text-stone-500';
+                btnBacklog.querySelector('i').className = 'w-4 h-4 text-stone-500';
+            } else if (tipo === 'prompt') {
+                bPrompt.classList.remove('hidden');
+                btnPrompt.className = 'w-full text-left p-5 border border-stone-300 bg-stone-50 rounded-lg transition-all duration-300';
+                btnAuditoria.querySelector('i').className = 'w-4 h-4 text-stone-500';
+                btnPrompt.querySelector('i').className = 'w-4 h-4 text-stone-900';
+                btnBacklog.querySelector('i').className = 'w-4 h-4 text-stone-500';
+            } else if (tipo === 'backlog') {
+                bBacklog.classList.remove('hidden');
+                btnBacklog.className = 'w-full text-left p-5 border border-stone-300 bg-stone-50 rounded-lg transition-all duration-300';
+                btnAuditoria.querySelector('i').className = 'w-4 h-4 text-stone-500';
+                btnPrompt.querySelector('i').className = 'w-4 h-4 text-stone-500';
+                btnBacklog.querySelector('i').className = 'w-4 h-4 text-stone-900';
+            }
+        }
 
         // Observador para ativar o efeito de marca-texto ao rolar a página
         const highlightObserver = new IntersectionObserver((entries) => {
