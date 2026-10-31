@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Protocolo de Diagnóstico Ativo | Arquitetura de Estudos de Idiomas</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1B19' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#F5F4F0',
+                            100: '#EAE8E1',
+                            200: '#DCDAD1',
+                            300: '#C5C2B7',
+                            400: '#9A978C',
+                            550: '#646158',
+                            850: '#262522',
+                            900: '#1C1B19',
+                        },
+                        ink: {
+                            blue: '#1A365D',
+                            yellow: '#FEF08A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    boxShadow: {
+                        'product': '0 20px 48px -12px rgba(28, 27, 25, 0.2), 0 4px 16px -4px rgba(28, 27, 25, 0.1)',
+                        'paper': '0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F5F4F0;
+            color: #1C1B19;
+            -webkit-font-smoothing: antialiased;
+        }
+        .ruled-lines {
+            background-size: 100% 28px;
+            background-image: linear-gradient(to bottom, transparent 27px, #DCDAD1 27px);
+        }
+        .marker-highlight {
+            background-image: linear-gradient(to right, rgba(254, 240, 138, 0.9) 50%, transparent 50%);
+            background-position: 100% 0;
+            background-size: 200% 100%;
+            transition: background-position 0.6s ease-in-out;
+            display: inline;
+            padding: 0.1em 0.2em;
+        }
+        .marker-highlight.is-visible {
+            background-position: 0 0;
+        }
+    </style>
+</head>
+<body class="font-sans font-normal antialiased selection:bg-ink-yellow selection:text-stone-900 min-h-screen flex flex-col justify-between">
+
+    <!-- Topo Minimalista Sem Links Dispersivos -->
+    <header class="w-full border-b border-stone-200 bg-stone-50/90 backdrop-blur-sm">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 bg-stone-900"></span>
+                <span class="text-xs uppercase tracking-widest font-bold text-stone-900">Arquitetura de Estudos</span>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-stone-550 border border-stone-300 px-2.5 py-1 rounded bg-stone-100">
+                <i data-lucide="terminal" class="w-3 h-3 text-stone-900"></i>
+                <span>Protocolo de Prática Ativa</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow">
+        <div class="max-w-3xl mx-auto px-6 py-12 md:py-20">
+
+            <!-- Cabeçalho de Chamada / Headline -->
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-stone-550 bg-stone-200/70 border border-stone-300 px-3 py-1.5 rounded-full mb-6">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5 text-stone-900"></i>
+                    <span>Engenharia de Prompt para Aprendizado Autodidata</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.15] text-stone-900 mb-6">
+                    Pare de usar a IA apenas para corrigir frases.<br>
+                    <span class="text-stone-550 font-serif italic font-normal text-2xl sm:text-3xl md:text-4xl block mt-2">
+                        Transforme o ChatGPT em um tutor socrático obstinado.
+                    </span>
+                </h1>
+
+                <p class="font-serif text-base sm:text-lg text-stone-550 leading-relaxed">
+                    Pedir traduções diretas cria uma falsa ilusão de domínio e atrofia a memória de longo prazo. Este protocolo calibrado de 13 regras obriga a inteligência artificial a diagnosticar o ponto de hesitação e exigir esforço de recuperação antes de confirmar qualquer hipótese.
+                </p>
+            </div>
+
+            <!-- Card de Captura do Lead (Formulário) -->
+            <div id="card-captura" class="bg-white border border-stone-300 rounded-xl p-6 sm:p-10 shadow-product mb-12 transition-all duration-500">
+                <div class="mb-6">
+                    <span class="text-xs font-mono uppercase tracking-widest text-stone-400 font-bold block mb-1">Acesso Imediato</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-stone-900">Desbloqueie o Protocolo de Diagnóstico Cognitivo</h2>
+                    <p class="text-sm font-serif text-stone-550 mt-1">
+                        Informe seu e-mail abaixo para liberar a cópia do comando e começar sua primeira sessão de treino em menos de 2 minutos.
+                    </p>
+                </div>
+
+                <form id="form-captura" onsubmit="enviarCaptura(event)" class="space-y-4">
+                    <div class="space-y-1.5">
+                        <label for="input-email" class="block text-xs font-bold uppercase tracking-wider text-stone-850">
+                            Seu melhor e-mail
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </div>
+                            <input 
+                                type="email" 
+                                id="input-email" 
+                                name="email" 
+                                required 
+                                placeholder="seu.email@exemplo.com"
+                                class="w-full pl-10 pr-4 py-3.5 bg-stone-50 border border-stone-300 rounded-lg text-stone-900 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 focus:border-stone-900 transition-all"
+                            >
+                        </div>
+                    </div>
+
+                    <div id="alerta-erro" class="hidden p-3.5 bg-red-50 border border-red-200 rounded-lg text-xs text-red-700 flex items-center gap-2">
+                        <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0 text-red-600"></i>
+                        <span id="mensagem-erro">Ocorreu um erro ao processar. Tente novamente.</span>
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        id="btn-submit"
+                        class="w-full inline-flex items-center justify-center gap-2.5 bg-stone-900 hover:bg-stone-800 text-stone-50 font-bold text-sm uppercase tracking-wider py-4 px-6 rounded-lg transition-all duration-200 shadow-sm disabled:opacity-75 disabled:cursor-not-allowed"
+                    >
+                        <span id="texto-btn-submit">Liberar Acesso ao Prompt Gratuito</span>
+                        <i id="icone-btn-submit" data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+
+                    <div class="flex items-center justify-center gap-2 text-stone-400 text-xs pt-1">
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-stone-550"></i>
+                        <span>Zero spam. Apenas o protocolo de estudo e atualizações da metodologia.</span>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Pilares Rápidos do Protocolo (Visíveis antes ou durante) -->
+            <div id="grid-beneficios" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
+                <div class="p-4 bg-stone-100/70 border border-stone-200 rounded-lg">
+                    <div class="w-8 h-8 rounded bg-white border border-stone-200 flex items-center justify-center mb-3 text-stone-900">
+                        <i data-lucide="brain" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-stone-900 mb-1">Recuperação Ativa</h3>
+                    <p class="text-xs font-serif text-stone-550 leading-relaxed">
+                        Impede que a IA dê respostas prontas, forçando o resgate intencional da regra na memória.
+                    </p>
+                </div>
+
+                <div class="p-4 bg-stone-100/70 border border-stone-200 rounded-lg">
+                    <div class="w-8 h-8 rounded bg-white border border-stone-200 flex items-center justify-center mb-3 text-stone-900">
+                        <i data-lucide="crosshair" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-stone-900 mb-1">Diagnóstico por Pistas</h3>
+                    <p class="text-xs font-serif text-stone-550 leading-relaxed">
+                        Fornece dicas graduais e categorizadas (preposição, tempo verbal, colocação) sem dar a resposta direta.
+                    </p>
+                </div>
+
+                <div class="p-4 bg-stone-100/70 border border-stone-200 rounded-lg">
+                    <div class="w-8 h-8 rounded bg-white border border-stone-200 flex items-center justify-center mb-3 text-stone-900">
+                        <i data-lucide="sliders" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-stone-900 mb-1">Compatível com Qualquer IA</h3>
+                    <p class="text-xs font-serif text-stone-550 leading-relaxed">
+                        Funciona instantaneamente no plano gratuito do ChatGPT, Claude ou Gemini sem configurações prévias.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bloco Revelado Pós-Captura (Inicialmente Oculto) -->
+            <div id="bloco-sucesso-prompt" class="hidden space-y-12 transition-all duration-700 opacity-0 translate-y-6">
+
+                <!-- Aviso de Sucesso -->
+                <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center gap-3 text-emerald-800 text-sm">
+                    <i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i>
+                    <div>
+                        <strong class="font-bold">Acesso liberado com sucesso!</strong> Seu e-mail foi cadastrado. Copie o comando abaixo e use no ChatGPT.
+                    </div>
+                </div>
+
+                <!-- Painel do Prompt Formatado -->
+                <div class="border border-stone-800 bg-stone-900 rounded-xl p-6 sm:p-8 shadow-product relative text-stone-50">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-stone-800 gap-2 mb-4">
+                        <div>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-ink-yellow block font-bold">
+                                Laboratório de Engenharia Cognitiva // Protocolo 01
+                            </span>
+                            <h3 class="text-lg font-bold text-white mt-0.5">
+                                Protocolo de Diagnóstico e Recuperação Ativa
+                            </h3>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 text-xs text-stone-400 font-mono bg-stone-850 px-2.5 py-1 rounded border border-stone-800 self-start sm:self-auto">
+                            <i data-lucide="terminal" class="w-3.5 h-3.5 text-stone-300"></i>
+                            13 Regras de Orientação
+                        </span>
+                    </div>
+
+                    <p class="text-xs font-serif text-stone-300 leading-relaxed mb-4 italic">
+                        Instrução de uso: Copie todo o bloco abaixo e cole como primeira mensagem em uma nova conversa no ChatGPT, Claude ou Gemini. Em seguida, envie qualquer frase que você queira praticar.
+                    </p>
+
+                    <div class="relative mb-6">
+                        <div 
+                            id="texto-prompt-completo" 
+                            class="bg-stone-850 p-5 border border-stone-800 rounded-lg text-stone-200 font-mono text-xs leading-relaxed select-all whitespace-pre-wrap max-h-80 overflow-y-auto"
+                        >Aja como um assistente de diagnóstico cognitivo para aprendizagem de idiomas.
+
+Antes de qualquer outra coisa, sua primeira resposta obrigatória deve ser exatamente:
+
+"Envie sua primeira frase ou texto no idioma que você está estudando."
+
+Não adicione nenhuma explicação, saudação, introdução ou comentário antes ou depois dessa frase na primeira resposta.
+
+Após eu enviar uma frase ou texto, siga as regras abaixo:
+
+1. Nunca reescreva a frase corrigida.
+2. Nunca forneça a resposta correta diretamente.
+3. Nunca substitua palavras ou expressões por versões corretas.
+4. Identifique apenas o trecho aproximado onde existe um possível problema.
+5. Informe a categoria do problema (preposição, vocabulário, colocação, tempo verbal, artigo, ordem das palavras etc.).
+6. Explique em português o conceito envolvido no possível erro.
+7. Forneça pistas graduais, começando pelas mais vagas.
+8. Sempre me peça para tentar corrigir sozinho antes de fornecer qualquer validação.
+9. Só valide minha hipótese após eu apresentar uma nova tentativa.
+10. Se minha nova tentativa ainda estiver incorreta, forneça apenas uma pista adicional, sem revelar a solução.
+11. Nunca escreva a frase correta completa, mesmo que eu peça explicitamente.
+12. Nunca complete lacunas com a resposta correta.
+13. Seu objetivo é diagnosticar e orientar, não corrigir.
+
+Formato obrigatório das análises:
+
+- Trecho suspeito:
+- Categoria:
+- O que vale refletir:
+- Pista:
+- Sua nova tentativa:
+
+Aguarde minha nova tentativa antes de qualquer validação.</div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4 border-t border-stone-800">
+                        <button 
+                            type="button" 
+                            id="btn-copiar"
+                            onclick="copiarPromptComando(this)" 
+                            class="inline-flex items-center justify-center gap-2 bg-stone-100 hover:bg-white text-stone-900 px-5 py-3 text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
+                        >
+                            <i data-lucide="copy" class="w-4 h-4"></i>
+                            <span>Copiar Prompt Completo</span>
+                        </button>
+
+                        <a 
+                            href="https://chatgpt.com/share/6a25c767-0fb4-83e9-b76e-d15930df7336" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            class="inline-flex items-center justify-center gap-2 bg-ink-yellow hover:bg-yellow-250 text-stone-900 px-5 py-3 text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
+                        >
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                            <span>Abrir Demonstração no ChatGPT</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Seção de Upsell Sutil: Arquitetura Completa -->
+                <div class="bg-white border border-stone-300 rounded-xl p-6 sm:p-10 shadow-product">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        
+                        <div class="lg:col-span-8">
+                            <div class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-stone-550 bg-stone-100 border border-stone-200 px-3 py-1 rounded mb-3">
+                                <i data-lucide="book-open" class="w-3.5 h-3.5 text-stone-900"></i>
+                                <span>Da Ferramenta ao Método Completo</span>
+                            </div>
+
+                            <h3 class="text-2xl sm:text-3xl font-semibold tracking-tight text-stone-900 mb-3">
+                                Você desbloqueou 1 comando.<br>
+                                <span class="text-stone-550 font-serif italic text-xl sm:text-2xl">
+                                    Conheça a arquitetura inteira por trás da retenção fluida.
+                                </span>
+                            </h3>
+
+                            <p class="font-serif text-sm sm:text-base text-stone-550 leading-relaxed mb-6">
+                                Uma única instrução de IA ajuda a treinar, mas não resolve o problema estrutural do estudante intermediário: o acúmulo desordenado de anotações, o medo de falar e a falta de um ciclo sustentável de revisões. O livro <strong>Arquitetura de Estudos de Idiomas</strong> (143 páginas) oferece o sistema autodidata integral baseado em ciência cognitiva.
+                            </p>
+
+                            <div class="space-y-2.5 mb-6 text-xs text-stone-850">
+                                <div class="flex items-center gap-2.5">
+                                    <i data-lucide="check" class="w-4 h-4 text-stone-900 flex-shrink-0"></i>
+                                    <span><strong>Laboratório de Prompts:</strong> Mais 11 protocolos avançados para produção escrita e oratória.</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <i data-lucide="check" class="w-4 h-4 text-stone-900 flex-shrink-0"></i>
+                                    <span><strong>Engenharia de Repetição Espaçada:</strong> Elimine o colapso de revisões atrasadas no Anki ou cadernos.</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <i data-lucide="check" class="w-4 h-4 text-stone-900 flex-shrink-0"></i>
+                                    <span><strong>Desmonte do Filtro Afetivo:</strong> Técnicas práticas para falar sem a paralisia do perfeccionismo.</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-stone-200 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                                <a 
+                                    href="/" 
+                                    class="inline-flex items-center justify-center gap-2.5 bg-stone-900 hover:bg-stone-800 text-stone-50 px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-colors shadow-sm"
+                                >
+                                    <span>Ver Apresentação Completa da Obra</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                                <span class="text-xs text-stone-400 font-serif italic text-center sm:text-left">
+                                    Garantia incondicional de 7 dias com devolução integral.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-4 flex justify-center">
+                            <div class="relative w-40 sm:w-48 aspect-[3/4]">
+                                <div class="absolute inset-0 bg-stone-100 border border-stone-200 shadow-sm transform translate-x-2 translate-y-2 rotate-2"></div>
+                                <div class="absolute inset-0 bg-stone-50 border border-stone-200 shadow-sm transform translate-x-1 translate-y-1 rotate-1"></div>
+                                <div class="absolute inset-0 shadow-product border border-stone-300 transform -rotate-1 bg-white overflow-hidden">
+                                    <img 
+                                        src="/cover.png" 
+                                        alt="Capa do Livro Arquitetura de Estudos de Idiomas" 
+                                        class="w-full h-auto block"
+                                        onerror="this.src='../cover.png'"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé Minimalista -->
+    <footer class="w-full py-8 px-6 border-t border-stone-200 bg-stone-50 text-center text-xs text-stone-400 font-serif">
+        <p>Arquitetura de Estudos de Idiomas &bull; Jônatas Rocha &bull; Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Inicializa ícones do Lucide
+        lucide.createIcons();
+
+        // Envio do formulário com estado assíncrono
+        async function enviarCaptura(event) {
+            event.preventDefault();
+            
+            const emailInput = document.getElementById('input-email');
+            const submitBtn = document.getElementById('btn-submit');
+            const btnText = document.getElementById('texto-btn-submit');
+            const btnIcon = document.getElementById('icone-btn-submit');
+            const erroContainer = document.getElementById('alerta-erro');
+            const erroMensagem = document.getElementById('mensagem-erro');
+            
+            const email = emailInput.value.trim();
+            if (!email) return;
+
+            // Reset de alertas e ativação do estado de carregamento
+            erroContainer.classList.add('hidden');
+            submitBtn.disabled = true;
+            btnText.textContent = 'Liberando Protocolo...';
+            btnIcon.setAttribute('data-lucide', 'loader-2');
+            btnIcon.classList.add('animate-spin');
+            lucide.createIcons();
+
+            try {
+                const response = await fetch('/api/captura', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok && !data.success) {
+                    throw new Error(data.error || 'Não foi possível cadastrar o e-mail.');
+                }
+
+                // Transição de Sucesso
+                const cardCaptura = document.getElementById('card-captura');
+                const gridBeneficios = document.getElementById('grid-beneficios');
+                const blocoSucesso = document.getElementById('bloco-sucesso-prompt');
+
+                // Animação de saída do formulário
+                cardCaptura.style.opacity = '0';
+                cardCaptura.style.transform = 'translateY(-10px)';
+                
+                setTimeout(() => {
+                    cardCaptura.classList.add('hidden');
+                    gridBeneficios.classList.add('hidden');
+                    
+                    blocoSucesso.classList.remove('hidden');
+                    // Força reflow para transição suave
+                    void blocoSucesso.offsetHeight;
+                    
+                    blocoSucesso.classList.remove('opacity-0', 'translate-y-6');
+                    blocoSucesso.classList.add('opacity-100', 'translate-y-0');
+                    lucide.createIcons();
+
+                    // Scroll suave para visualização do prompt
+                    blocoSucesso.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 400);
+
+            } catch (err) {
+                console.error('Erro na submissão:', err);
+                erroMensagem.textContent = err.message || 'Falha ao processar o envio. Por favor, tente novamente.';
+                erroContainer.classList.remove('hidden');
+                lucide.createIcons();
+            } finally {
+                submitBtn.disabled = false;
+                btnText.textContent = 'Liberar Acesso ao Prompt Gratuito';
+                btnIcon.setAttribute('data-lucide', 'arrow-right');
+                btnIcon.classList.remove('animate-spin');
+                lucide.createIcons();
+            }
+        }
+
+        // Cópia do prompt com fallback seguro e feedback visual
+        async function copiarPromptComando(btn) {
+            const textElement = document.getElementById('texto-prompt-completo');
+            const text = textElement.innerText || textElement.textContent;
+            const originalHTML = btn.innerHTML;
+
+            const feedbackSucesso = () => {
+                btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> <span class="text-emerald-700">Prompt Copiado!</span>';
+                btn.classList.add('border', 'border-emerald-500');
+                lucide.createIcons();
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('border', 'border-emerald-500');
+                    lucide.createIcons();
+                }, 2500);
+            };
+
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    feedbackSucesso();
+                } catch (err) {
+                    console.error('Erro na Clipboard API:', err);
+                    fallbackCopiar(text, feedbackSucesso);
+                }
+            } else {
+                fallbackCopiar(text, feedbackSucesso);
+            }
+        }
+
+        function fallbackCopiar(text, callback) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                callback();
+            } catch (e) {
+                console.error('Fallback de cópia falhou:', e);
+            }
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>

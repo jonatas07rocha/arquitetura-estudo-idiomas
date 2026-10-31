@@ -1,0 +1,12 @@
+{
+  "name": "arquitetura-estudo-idiomas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Arquitetura de Estudos de Idiomas - Landing Page e Lead Magnet",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}
